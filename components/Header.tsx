@@ -27,7 +27,7 @@ export default function Header() {
 
   return (
     <>
-      <div className="bg-[#f7680b] text-white text-center py-2.5 px-4 text-sm font-medium">
+      <div className="bg-[#f7680b] text-white text-center py-2.5 px-4 text-xs sm:text-sm font-medium leading-snug">
         Looking to track your order?{" "}
         <Link href="/track" className="underline font-bold hover:no-underline">Track your shipment here →</Link>
       </div>

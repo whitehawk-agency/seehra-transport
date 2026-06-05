@@ -23,16 +23,16 @@ export default function RecruitmentPage() {
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 pb-16 w-full">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-2">Join Our Team</p>
-          <h1 className="text-5xl lg:text-6xl font-extrabold text-white leading-tight">Become part of a<br /><span className="text-transparent bg-clip-text" style={{ backgroundImage:"linear-gradient(135deg,#e62b1e,#f7a50b)" }}>professional driving team</span></h1>
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">Become part of a<br /><span className="text-transparent bg-clip-text" style={{ backgroundImage:"linear-gradient(135deg,#e62b1e,#f7a50b)" }}>professional driving team</span></h1>
         </div>
       </section>
 
       {/* Why Drive With Us */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-14 sm:py-20 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3 text-center">Why Drive With Us</p>
           <h2 className="text-3xl lg:text-4xl font-extrabold text-center mb-10">The benefits of joining Seehra Transport</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+          <div className="grid md:grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
             {[
               { icon:"💷", title:"Competitive Pay", desc:"Industry-leading rates. Fuel paid on top of your day rate. Weekly payments, reliable every week." },
               { icon:"📅", title:"Flexible Schedules", desc:"Full-time, part-time, and flexible options. Choose which days you want to work." },
@@ -48,7 +48,7 @@ export default function RecruitmentPage() {
           </div>
 
           {/* Requirements + Form side by side */}
-          <div className="grid lg:grid-cols-2 gap-14 items-start">
+          <div className="grid lg:grid-cols-2 gap-10 items-start">
             <div>
               <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3">Requirements</p>
               <h2 className="text-3xl font-extrabold mb-7">What we're looking for</h2>

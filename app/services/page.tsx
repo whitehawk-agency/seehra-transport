@@ -6,57 +6,55 @@ const services = [
   { id:"multi-drop", icon:"🗺️", title:"Multi-Drop Delivery", subtitle:"Efficient multi-location delivery solutions",
     img:"https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&w=800&q=80",
     desc:"Our multi-drop delivery service is designed for businesses that need to reach multiple locations efficiently. Whether you're delivering to 5 locations or 50, we optimise routes to ensure timely delivery at every stop.",
-    includes:["Optimised route planning","Real-time tracking for all deliveries","Proof of delivery at each location","Flexible scheduling to match your business","Professional drivers trained in customer service","Same-day and next-day options available","Bespoke service — fast decisions as a privately owned business"],
+    includes:["Optimised route planning","Real-time tracking for all deliveries","Proof of delivery at each location","Flexible scheduling to match your business","Professional drivers trained in customer service","Same-day and next-day options available"],
     idealFor:["Retail chains and outlets","Wholesale distributors","Food and beverage suppliers","Construction material suppliers","Pharmaceutical companies"] },
   { id:"last-mile", icon:"📍", title:"Last-Mile Logistics", subtitle:"Direct delivery to your customers' doorsteps",
     img:"https://images.unsplash.com/photo-1530521954074-e64f6810b32d?auto=format&fit=crop&w=800&q=80",
-    desc:"Last-mile delivery is often the most critical part of the logistics chain. We specialise in getting your products from our depot or warehouse directly to your customers' doors — ensuring a positive delivery experience that reflects well on your brand.",
-    includes:["Direct delivery to residential and business addresses","Customisable delivery time windows","SMS and email delivery notifications","Photo proof of delivery","Signature capture options","Safe place and neighbour delivery options","Returns management"],
+    desc:"Last-mile delivery is often the most critical part of the logistics chain. We specialise in getting your products from our depot or warehouse directly to your customers' doors — ensuring a positive delivery experience.",
+    includes:["Direct delivery to residential and business addresses","Customisable delivery time windows","SMS and email delivery notifications","Photo proof of delivery","Signature capture options","Returns management"],
     idealFor:["E-commerce businesses","Online retailers","Subscription box services","Direct-to-consumer brands","Furniture and appliance retailers"] },
   { id:"flexible", icon:"🔧", title:"Flexible Solutions", subtitle:"Custom delivery tailored to your needs",
     img:"https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
     desc:"Every business has unique logistics requirements. Our flexible solutions adapt to your specific needs — dedicated vehicles, scheduled collections, or specialised handling. From one-off urgent deliveries to long-term contracts.",
-    includes:["Dedicated vehicle hire","Scheduled regular collections","Out-of-hours delivery options","Weekend and bank holiday deliveries","Fragile item handling","Two-person delivery teams","Assembly and installation services"],
+    includes:["Dedicated vehicle hire","Scheduled regular collections","Out-of-hours delivery options","Weekend and bank holiday deliveries","Fragile item handling","Two-person delivery teams"],
     idealFor:["Businesses with irregular needs","High-value or fragile goods","Out-of-hours requirements","Long-term contract clients","Businesses needing dedicated vehicles"] },
 ];
 
 export default function ServicesPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative h-[50vh] min-h-[360px] flex items-end overflow-hidden">
+      <section className="relative h-[45vh] min-h-[300px] flex items-end overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage:"url('https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=1920&q=80')" }} />
         <div className="absolute inset-0 bg-black/60" />
-        <div className="relative z-10 max-w-7xl mx-auto px-6 pb-16 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pb-10 sm:pb-16 w-full">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-2">Our Expertise</p>
-          <h1 className="text-5xl lg:text-6xl font-extrabold text-white leading-tight">Comprehensive logistics<br /><span className="text-transparent bg-clip-text" style={{ backgroundImage:"linear-gradient(135deg,#e62b1e,#f7a50b)" }}>solutions for your business</span></h1>
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">Comprehensive logistics<br /><span className="text-transparent bg-clip-text" style={{ backgroundImage:"linear-gradient(135deg,#e62b1e,#f7a50b)" }}>solutions for your business</span></h1>
         </div>
       </section>
 
-      {/* Each service */}
       {services.map((s, i) => (
-        <section key={s.id} id={s.id} className={`py-20 px-6 ${i % 2 === 0 ? "bg-white" : "bg-gray-50"}`}>
-          <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-start">
+        <section key={s.id} id={s.id} className={`py-14 sm:py-20 px-4 sm:px-6 ${i % 2 === 0 ? "bg-white" : "bg-gray-50"}`}>
+          <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-start">
             <div className={i % 2 !== 0 ? "lg:order-2" : ""}>
               <div className="text-4xl mb-3">{s.icon}</div>
               <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-2">{s.subtitle}</p>
-              <h2 className="text-3xl lg:text-4xl font-extrabold mb-4">{s.title}</h2>
-              <p className="text-gray-600 leading-relaxed mb-7">{s.desc}</p>
-              <Link href="/contact" className="inline-block bg-[#f7680b] text-white px-8 py-4 rounded-xl font-bold hover:bg-[#e55a00] transition-colors">Get a Quote →</Link>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-4">{s.title}</h2>
+              <p className="text-gray-600 leading-relaxed mb-6 text-sm sm:text-base">{s.desc}</p>
+              <Link href="/contact" className="inline-block bg-[#f7680b] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#e55a00] transition-colors text-sm">Get a Quote →</Link>
             </div>
-            <div className={`grid gap-4 ${i % 2 !== 0 ? "lg:order-1" : ""}`}>
-              <img src={s.img} alt={s.title} className="rounded-2xl w-full h-52 object-cover" />
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
+            <div className={`grid gap-3 ${i % 2 !== 0 ? "lg:order-1" : ""}`}>
+              <img src={s.img} alt={s.title} className="rounded-2xl w-full h-44 sm:h-52 object-cover" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="bg-white border border-gray-100 rounded-2xl p-4 shadow-sm">
                   <h3 className="font-bold mb-3 text-xs uppercase tracking-widest text-gray-400">What's Included</h3>
                   <ul className="flex flex-col gap-1.5">
-                    {s.includes.map(item => <li key={item} className="flex items-start gap-2 text-xs text-gray-700"><span className="text-[#f7680b] font-bold">✓</span>{item}</li>)}
+                    {s.includes.map(item => <li key={item} className="flex items-start gap-2 text-xs text-gray-700"><span className="text-[#f7680b] font-bold flex-shrink-0">✓</span>{item}</li>)}
                   </ul>
                 </div>
-                <div className="bg-[#0a0a0a] rounded-2xl p-5">
+                <div className="bg-[#0a0a0a] rounded-2xl p-4">
                   <h3 className="font-bold mb-3 text-xs uppercase tracking-widest text-white/40">Ideal For</h3>
                   <ul className="flex flex-col gap-1.5">
-                    {s.idealFor.map(item => <li key={item} className="flex items-start gap-2 text-xs text-white/60"><span className="text-[#f7680b]">→</span>{item}</li>)}
+                    {s.idealFor.map(item => <li key={item} className="flex items-start gap-2 text-xs text-white/60"><span className="text-[#f7680b] flex-shrink-0">→</span>{item}</li>)}
                   </ul>
                 </div>
               </div>
@@ -65,58 +63,56 @@ export default function ServicesPage() {
         </section>
       ))}
 
-      {/* Pricing */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-14 sm:py-20 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3 text-center">Transparent Pricing</p>
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-center mb-3">Simple, Fair Rates</h2>
-          <p className="text-gray-500 text-center mb-10 max-w-lg mx-auto text-sm">No hidden fees. No surprises. All prices exclude VAT. Volume discounts available.</p>
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-center mb-3">Simple, Fair Rates</h2>
+          <p className="text-gray-500 text-center mb-10 max-w-lg mx-auto text-sm">No hidden fees. All prices exclude VAT. Volume discounts available.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-4xl mx-auto">
             {[
               { name:"Standard Delivery", price:"£4.99", period:"2–3 working days", features:["Full tracking","Up to 25kg","Proof of delivery","Email notifications"] },
               { name:"Next Day Delivery", price:"£12.99", period:"Next working day", features:["1-hour time window","Priority handling","SMS notifications","AM / PM / Eve slots"], popular:true },
               { name:"Same Day Delivery", price:"£24.99", period:"Same day · 4-hr window", features:["Express handling","Real-time tracking","Urgent collection","Live driver updates"] },
             ].map(plan => (
-              <div key={plan.name} className={`rounded-2xl p-7 border ${(plan as any).popular ? "border-[#f7680b] bg-[#0a0a0a] scale-105 shadow-xl shadow-orange-500/10" : "border-gray-200 bg-white"}`}>
-                {(plan as any).popular && <div className="text-xs font-bold text-[#f7680b] tracking-widest uppercase mb-3">Most Popular</div>}
-                <h3 className={`text-lg font-bold mb-1 ${(plan as any).popular ? "text-white":"text-gray-900"}`}>{plan.name}</h3>
-                <div className={`text-4xl font-extrabold mb-1 ${(plan as any).popular ? "text-white":"text-gray-900"}`}>{plan.price}</div>
-                <div className={`text-sm mb-5 ${(plan as any).popular ? "text-white/50":"text-gray-400"}`}>{plan.period}</div>
-                <ul className="flex flex-col gap-2 mb-7">
-                  {plan.features.map(f => <li key={f} className={`text-sm flex items-center gap-2 ${(plan as any).popular ? "text-white/70":"text-gray-600"}`}><span className="text-[#f7680b]">✓</span>{f}</li>)}
+              <div key={plan.name} className={`rounded-2xl p-6 border ${(plan as any).popular ? "border-[#f7680b] bg-[#0a0a0a] shadow-xl shadow-orange-500/10" : "border-gray-200 bg-white"}`}>
+                {(plan as any).popular && <div className="text-xs font-bold text-[#f7680b] tracking-widest uppercase mb-2">Most Popular</div>}
+                <h3 className={`text-base font-bold mb-1 ${(plan as any).popular ? "text-white":"text-gray-900"}`}>{plan.name}</h3>
+                <div className={`text-3xl font-extrabold mb-1 ${(plan as any).popular ? "text-white":"text-gray-900"}`}>{plan.price}</div>
+                <div className={`text-xs mb-4 ${(plan as any).popular ? "text-white/50":"text-gray-400"}`}>{plan.period}</div>
+                <ul className="flex flex-col gap-1.5 mb-5">
+                  {plan.features.map(f => <li key={f} className={`text-xs flex items-center gap-2 ${(plan as any).popular ? "text-white/70":"text-gray-600"}`}><span className="text-[#f7680b]">✓</span>{f}</li>)}
                 </ul>
-                <Link href="/contact" className={`block text-center py-3 rounded-xl font-bold text-sm transition-colors ${(plan as any).popular ? "bg-[#f7680b] text-white hover:bg-[#e55a00]":"border border-gray-200 text-gray-700 hover:border-[#f7680b] hover:text-[#f7680b]"}`}>Get Started</Link>
+                <Link href="/contact" className={`block text-center py-2.5 rounded-xl font-bold text-sm transition-colors ${(plan as any).popular ? "bg-[#f7680b] text-white hover:bg-[#e55a00]":"border border-gray-200 text-gray-700 hover:border-[#f7680b] hover:text-[#f7680b]"}`}>Get Started</Link>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Enterprise */}
-      <section className="relative py-20 px-6">
+      <section className="relative py-14 sm:py-20 px-4 sm:px-6">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage:"url('https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1920&q=80')" }} />
         <div className="absolute inset-0 bg-gray-900/90" />
         <div className="relative z-10 max-w-7xl mx-auto">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3 text-center">For Businesses</p>
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-white text-center mb-3">Enterprise Solutions</h2>
-          <p className="text-white/60 text-center mb-10 max-w-lg mx-auto text-sm">Tailored logistics for high-volume businesses with advanced integration and dedicated support.</p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white text-center mb-3">Enterprise Solutions</h2>
+          <p className="text-white/60 text-center mb-8 max-w-lg mx-auto text-sm">Tailored logistics for high-volume businesses with advanced integration and dedicated support.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               { icon:"📊", title:"Volume Discounts", desc:"Competitive pricing for businesses shipping 100+ parcels per week." },
-              { icon:"👤", title:"Dedicated Account Manager", desc:"A single point of contact who understands your business and provides personalised support." },
-              { icon:"🔗", title:"API Integration", desc:"RESTful API for booking, tracking, and managing deliveries programmatically." },
-              { icon:"🛒", title:"Marketplace Integrations", desc:"Connect Shopify, Amazon, eBay, and WooCommerce for automatic shipping." },
-              { icon:"💳", title:"Flexible Payment Terms", desc:"NET-30 and NET-60 options, consolidated monthly invoicing, credit facilities." },
-              { icon:"📞", title:"Priority Business Support", desc:"Phone and email support with priority handling for account customers." },
+              { icon:"👤", title:"Dedicated Account Manager", desc:"A single point of contact who understands your business." },
+              { icon:"🔗", title:"API Integration", desc:"RESTful API for booking, tracking, and managing deliveries." },
+              { icon:"🛒", title:"Marketplace Integrations", desc:"Connect Shopify, Amazon, eBay, and WooCommerce." },
+              { icon:"💳", title:"Flexible Payment Terms", desc:"NET-30 and NET-60 options, consolidated monthly invoicing." },
+              { icon:"📞", title:"Priority Business Support", desc:"Phone and email support with priority handling." },
             ].map(f => (
-              <div key={f.title} className="bg-white/8 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-orange-500/40 transition-all">
-                <div className="text-3xl mb-3">{f.icon}</div>
-                <h3 className="font-bold mb-2 text-white">{f.title}</h3>
-                <p className="text-white/55 text-sm leading-relaxed">{f.desc}</p>
+              <div key={f.title} className="bg-white/8 backdrop-blur-sm rounded-2xl p-5 border border-white/10 hover:border-orange-500/40 transition-all">
+                <div className="text-2xl mb-2">{f.icon}</div>
+                <h3 className="font-bold mb-1 text-white text-sm">{f.title}</h3>
+                <p className="text-white/55 text-xs leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>
-          <div className="mt-10 text-center">
+          <div className="mt-8 text-center">
             <Link href="/contact" className="inline-block bg-[#f7680b] text-white px-8 py-4 rounded-xl font-bold hover:bg-[#e55a00] transition-colors">Request Enterprise Quote →</Link>
           </div>
         </div>

@@ -20,16 +20,16 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-black/55" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 pb-16 w-full">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-2">About Seehra Transport</p>
-          <h1 className="text-5xl lg:text-6xl font-extrabold text-white leading-tight">Your trusted<br /><span className="text-transparent bg-clip-text" style={{ backgroundImage:"linear-gradient(135deg,#e62b1e,#f7a50b)" }}>logistics partner</span></h1>
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">Your trusted<br /><span className="text-transparent bg-clip-text" style={{ backgroundImage:"linear-gradient(135deg,#e62b1e,#f7a50b)" }}>logistics partner</span></h1>
         </div>
       </section>
 
       {/* Who We Are */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
+      <section className="py-14 sm:py-20 px-4 sm:px-6 bg-white">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
           <div>
             <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3">Who We Are</p>
-            <h2 className="text-3xl lg:text-4xl font-extrabold leading-tight mb-5">Invisible every day,<br />but essential to everyone</h2>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight mb-5">Invisible every day,<br />but essential to everyone</h2>
             <p className="text-gray-600 leading-relaxed mb-4">Seehra Transport is a leading logistics and delivery company specialising in multi-drop and last-mile delivery services across the UK. With over a decade of experience, we've built our reputation on reliability, efficiency, and exceptional customer service.</p>
             <p className="text-gray-600 leading-relaxed mb-4">Our team of professional drivers and logistics experts work tirelessly to ensure your deliveries reach their destination on time, every time. In today's fast-paced business environment, timely delivery isn't just a service — it's a necessity.</p>
             <p className="text-gray-500 italic border-l-4 border-[#f7680b] pl-5 mb-7 text-sm leading-relaxed">"Being a privately owned business means we make decisions quickly — building trusted partnerships and delivering logistical services tailored to each client's unique needs."</p>
@@ -42,13 +42,13 @@ export default function AboutPage() {
       </section>
 
       {/* Values — numbers + title + desc only, NO stats underneath */}
-      <section className="relative py-20 px-6">
+      <section className="relative py-14 sm:py-20 px-4 sm:px-6">
         <div className="absolute inset-0 bg-cover bg-center opacity-5" style={{ backgroundImage:"url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&q=80')" }} />
         <div className="absolute inset-0 bg-gray-50/97" />
         <div className="relative z-10 max-w-7xl mx-auto">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3 text-center">Our Core Values</p>
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-center mb-10">The principles that guide everything we do</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-center mb-10">The principles that guide everything we do</h2>
+          <div className="grid md:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {values.map(v => (
               <div key={v.num} className="bg-white rounded-2xl p-7 border border-gray-100 hover:border-orange-200 hover:shadow-lg transition-all">
                 <div className="text-4xl font-extrabold mb-3 text-transparent bg-clip-text leading-none" style={{ backgroundImage:"linear-gradient(135deg,#e62b1e,#f7a50b)" }}>{v.num}</div>
@@ -62,12 +62,12 @@ export default function AboutPage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
+      <section className="py-14 sm:py-20 px-4 sm:px-6 bg-white">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
           <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=800&q=80" alt="Warehouse logistics" className="rounded-2xl w-full h-80 object-cover" />
           <div>
             <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3">Why Choose Us</p>
-            <h2 className="text-3xl lg:text-4xl font-extrabold leading-tight mb-5">Proven track record.<br />Modern fleet. Real support.</h2>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight mb-5">Proven track record.<br />Modern fleet. Real support.</h2>
             {[
               ["Proven Track Record","Over 10 years and 50,000+ completed deliveries. Our clients trust us because we've consistently delivered."],
               ["Modern Fleet","100+ well-maintained vehicles ensures we can handle any delivery requirement, large or small."],
@@ -87,7 +87,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-6" style={{ background:"linear-gradient(135deg,#e62b1e,#f7680b)" }}>
+      <section className="py-14 sm:py-20 px-4 sm:px-6" style={{ background:"linear-gradient(135deg,#e62b1e,#f7680b)" }}>
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-4xl font-extrabold text-white mb-3">Ready to work with us?</h2>
           <p className="text-white/80 mb-8 max-w-lg mx-auto">Join hundreds of businesses that trust Seehra Transport for their delivery needs.</p>

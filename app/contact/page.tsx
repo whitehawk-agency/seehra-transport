@@ -23,11 +23,11 @@ export default function ContactPage() {
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 pb-14 w-full">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-2">Get In Touch</p>
-          <h1 className="text-5xl lg:text-6xl font-extrabold text-white leading-tight">Talk to us</h1>
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">Talk to us</h1>
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-white">
+      <section className="py-14 sm:py-20 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14">
           <div>
             <h2 className="text-3xl font-extrabold mb-5">We're here to help</h2>
