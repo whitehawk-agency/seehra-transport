@@ -271,6 +271,32 @@ export default function AdminDashboard() {
                     </div>
                   )}
 
+                  {/* CV download */}
+                  {(selected as any).cvFilename && (
+                    <div className="mb-4">
+                      <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">CV Attached</p>
+                      <div className="flex items-center gap-2 bg-orange-50 border border-orange-100 rounded-xl p-3">
+                        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="#f7680b" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                        <span className="text-xs font-semibold text-[#f7680b] flex-1 truncate">{(selected as any).cvFilename}</span>
+                        {(selected as any).cvBase64 && (
+                          <a
+                            href={`data:${(selected as any).cvMimeType};base64,${(selected as any).cvBase64}`}
+                            download={(selected as any).cvFilename}
+                            className="text-xs font-bold text-white bg-[#f7680b] px-3 py-1 rounded-lg hover:bg-[#e55a00] transition-colors flex-shrink-0"
+                          >
+                            Download
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                  {!(selected as any).cvFilename && (
+                    <div className="mb-4 bg-yellow-50 border border-yellow-100 rounded-xl p-3">
+                      <p className="text-xs text-yellow-700 font-semibold">No CV uploaded</p>
+                      <p className="text-xs text-yellow-600 mt-0.5">Moving to "Interview" will automatically email the candidate requesting their CV.</p>
+                    </div>
+                  )}
+
                   <div>
                     <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Update Status</p>
                     <div className="grid grid-cols-2 gap-1.5">
@@ -279,8 +305,10 @@ export default function AdminDashboard() {
                         const isActive = selected.status === s;
                         return (
                           <button key={s} onClick={() => updateAppStatus(selected.id, s)}
-                            className={`py-2 rounded-xl text-xs font-bold transition-all ${isActive ? `${style.bg} ${style.text}` : "border border-gray-200 text-gray-400 hover:border-gray-300 hover:text-gray-600"}`}>
+                            title={s === "interview" ? "Automatically emails candidate with interview invitation" : ""}
+                            className={`py-2 rounded-xl text-xs font-bold transition-all relative ${isActive ? `${style.bg} ${style.text}` : "border border-gray-200 text-gray-400 hover:border-gray-300 hover:text-gray-600"}`}>
                             {style.label}
+                            {s === "interview" && <span className="absolute -top-1 -right-1 w-2 h-2 bg-[#f7680b] rounded-full" title="Sends email to candidate" />}
                           </button>
                         );
                       })}

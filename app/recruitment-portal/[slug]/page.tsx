@@ -10,6 +10,7 @@ export default function JobDetailPage({ params }: { params: Promise<{ slug: stri
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState({ firstName:"", lastName:"", email:"", phone:"", address:"", licenceType:"", experience:"", availability:"", coverLetter:"", source:"website" });
+  const [cvFile, setCvFile] = useState<File | null>(null);
   const [status, setStatus] = useState<"idle"|"sending"|"sent"|"error">("idle");
 
   useEffect(() => {
@@ -23,11 +24,10 @@ export default function JobDetailPage({ params }: { params: Promise<{ slug: stri
     e.preventDefault();
     setStatus("sending");
     try {
-      const res = await fetch("/api/applications", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, jobId: job?.id, jobTitle: job?.title }),
-      });
+      const fd = new FormData();
+      Object.entries({ ...form, jobId: job?.id || "", jobTitle: job?.title || "" }).forEach(([k,v]) => fd.append(k, String(v)));
+      if (cvFile) fd.append("cv", cvFile);
+      const res = await fetch("/api/applications", { method: "POST", body: fd });
       setStatus(res.ok ? "sent" : "error");
     } catch { setStatus("error"); }
   }
@@ -253,7 +253,7 @@ export default function JobDetailPage({ params }: { params: Promise<{ slug: stri
                   <div><label className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-1.5">Email Address *</label><input required type="email" className={inp} placeholder="john@email.com" value={form.email} onChange={e=>setForm(p=>({...p,email:e.target.value}))} /></div>
                   <div><label className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-1.5">Phone Number *</label><input required className={inp} placeholder="07700 000000" value={form.phone} onChange={e=>setForm(p=>({...p,phone:e.target.value}))} /></div>
                   <div><label className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-1.5">Address</label><input className={inp} placeholder="Your address" value={form.address} onChange={e=>setForm(p=>({...p,address:e.target.value}))} /></div>
-                  <div><label className="block text-xs font-bold text-gray-400 uppercase tracking-widests mb-1.5">Driving Licence</label>
+                  <div><label className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-1.5">Driving Licence</label>
                     <select className={inp} value={form.licenceType} onChange={e=>setForm(p=>({...p,licenceType:e.target.value}))}>
                       <option value="">Select licence type...</option>
                       <option>Category B (Car / Small Van)</option>
@@ -287,13 +287,37 @@ export default function JobDetailPage({ params }: { params: Promise<{ slug: stri
                       <option value="other">Other</option>
                     </select>
                   </div>
+                  <div>
+                    <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-1.5">
+                      Upload CV <span className="text-gray-300 font-normal normal-case">(PDF, Word or image — optional)</span>
+                    </label>
+                    <label className={`flex items-center gap-3 border-2 border-dashed rounded-xl px-4 py-4 cursor-pointer transition-colors ${cvFile ? "border-[#f7680b] bg-orange-50" : "border-gray-200 hover:border-[#f7680b] hover:bg-orange-50"}`}>
+                      <div className="w-8 h-8 rounded-lg bg-orange-100 flex items-center justify-center flex-shrink-0">
+                        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#f7680b" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        {cvFile ? (
+                          <p className="text-sm font-semibold text-[#f7680b] truncate">{cvFile.name}</p>
+                        ) : (
+                          <p className="text-sm text-gray-400">Click to upload your CV</p>
+                        )}
+                        <p className="text-xs text-gray-300">PDF, DOC, DOCX up to 5MB</p>
+                      </div>
+                      <input type="file" className="hidden" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" onChange={e => setCvFile(e.target.files?.[0] || null)} />
+                    </label>
+                    {cvFile && (
+                      <button type="button" onClick={() => setCvFile(null)} className="mt-1.5 text-xs text-gray-400 hover:text-red-500 transition-colors">
+                        Remove file
+                      </button>
+                    )}
+                  </div>
                   <button type="submit" disabled={status === "sending"}
                     className="w-full py-4 rounded-xl font-bold text-white text-sm uppercase tracking-wide transition-all hover:opacity-90 disabled:opacity-50 mt-1"
                     style={{ background: "linear-gradient(135deg,#e62b1e,#f7680b)" }}>
                     {status === "sending" ? "Submitting..." : "Submit Application →"}
                   </button>
                   {status === "error" && (
-                    <p className="text-red-500 text-xs text-center">Something went wrong. Please email info@seehratransport.com directly.</p>
+                    <p className="text-red-500 text-xs text-center">Something went wrong. Please email recruitment@seehratransport.com directly.</p>
                   )}
                   <p className="text-gray-400 text-xs text-center">Your application goes directly to our hiring team</p>
                 </form>

@@ -127,7 +127,7 @@ export default function RecruitmentPage() {
                   <button type="submit" disabled={status==="sending"} className="w-full py-4 rounded-xl font-bold text-white text-sm uppercase tracking-wide transition-all hover:opacity-90 disabled:opacity-50 mt-1" style={{ background:"linear-gradient(135deg,#e62b1e,#f7680b)" }}>
                     {status==="sending" ? "Submitting..." : "Submit Application →"}
                   </button>
-                  {status==="error" && <p className="text-red-500 text-xs text-center">Something went wrong. Please email info@seehratransport.com directly.</p>}
+                  {status==="error" && <p className="text-red-500 text-xs text-center">Something went wrong. Please email recruitment@seehratransport.com directly.</p>}
                 </form>
               )}
             </div>
