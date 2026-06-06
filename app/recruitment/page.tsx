@@ -19,7 +19,7 @@ export default function RecruitmentPage() {
     <>
       {/* Hero */}
       <section className="relative h-[50vh] min-h-[360px] flex items-end overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage:"url('https://images.pexels.com/photos/4391478/pexels-photo-4391478.jpeg?auto=compress&cs=tinysrgb&w=1920')" }} />
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage:"url('https://images.unsplash.com/photo-1471899236350-e3016bf1e69e?auto=format&fit=crop&w=1920&q=80')" }} />
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 pb-16 w-full">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-2">Join Our Team</p>
@@ -34,10 +34,10 @@ export default function RecruitmentPage() {
           <h2 className="text-3xl lg:text-4xl font-extrabold text-center mb-10">The benefits of joining Seehra Transport</h2>
           <div className="grid md:grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
             {[
-              { icon:"💷", title:"Competitive Pay", desc:"Industry-leading rates. Fuel paid on top of your day rate. Weekly payments, reliable every week." },
-              { icon:"📅", title:"Flexible Schedules", desc:"Full-time, part-time, and flexible options. Choose which days you want to work." },
-              { icon:"🚐", title:"Modern Fleet", desc:"Well-maintained vehicles. Low-deposit rental vans available directly from us." },
-              { icon:"🤝", title:"Full Support", desc:"Training fully paid. DBS check arranged and paid for. Drugs & alcohol test — we pay." },
+              { icon:"", title:"Competitive Pay", desc:"Industry-leading rates. Fuel paid on top of your day rate. Weekly payments, reliable every week." },
+              { icon:"", title:"Flexible Schedules", desc:"Full-time, part-time, and flexible options. Choose which days you want to work." },
+              { icon:"", title:"Modern Fleet", desc:"Well-maintained vehicles. Low-deposit rental vans available directly from us." },
+              { icon:"", title:"Full Support", desc:"Training fully paid. DBS check arranged and paid for. Drugs & alcohol test — we pay." },
             ].map(b => (
               <div key={b.title} className="bg-gray-50 rounded-2xl p-6 border border-gray-100 text-center">
                 <div className="text-4xl mb-3">{b.icon}</div>
@@ -54,12 +54,12 @@ export default function RecruitmentPage() {
               <h2 className="text-3xl font-extrabold mb-7">What we're looking for</h2>
               <div className="flex flex-col gap-3 mb-8">
                 {[
-                  { icon:"🪪", title:"Valid UK Driving Licence", desc:"Must be held over 1 year with no more than 6 penalty points." },
-                  { icon:"📱", title:"Smartphone", desc:"Required for our route app and real-time delivery management." },
-                  { icon:"🔍", title:"DBS Check", desc:"Required. We help you obtain this and cover the cost." },
-                  { icon:"🧪", title:"Drugs & Alcohol Test", desc:"Required before starting. We arrange and pay for this." },
-                  { icon:"🗺️", title:"East & West Midlands Routes", desc:"Currently recruiting for routes in both regions." },
-                  { icon:"✅", title:"Reliable & Customer-Focused", desc:"Punctual, hard-working and customer conscious." },
+                  { icon:"", title:"Valid UK Driving Licence", desc:"Must be held over 1 year with no more than 6 penalty points." },
+                  { icon:"", title:"Smartphone", desc:"Required for our route app and real-time delivery management." },
+                  { icon:"", title:"DBS Check", desc:"Required. We help you obtain this and cover the cost." },
+                  { icon:"", title:"Drugs & Alcohol Test", desc:"Required before starting. We arrange and pay for this." },
+                  { icon:"", title:"East & West Midlands Routes", desc:"Currently recruiting for routes in both regions." },
+                  { icon:"", title:"Reliable & Customer-Focused", desc:"Punctual, hard-working and customer conscious." },
                 ].map(r => (
                   <div key={r.title} className="flex items-start gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
                     <span className="text-xl">{r.icon}</span>
@@ -75,7 +75,7 @@ export default function RecruitmentPage() {
                 <h3 className="text-white font-bold mb-4">What you get</h3>
                 {["Weekly payments — every week","Training fully paid for","Fuel paid on top of day rate","Choose your working days","DBS check — we help arrange & pay","Drugs & alcohol test — we pay","Bring your own van or rent from us","Full support from our logistics team"].map(i => (
                   <div key={i} className="flex items-center gap-2 py-2 border-b border-white/5 last:border-0">
-                    <span className="text-[#f7680b] font-bold text-sm">✓</span>
+                    <span className="text-[#f7680b] font-bold text-sm"></span>
                     <span className="text-white/60 text-sm">{i}</span>
                   </div>
                 ))}
@@ -87,7 +87,7 @@ export default function RecruitmentPage() {
               <h2 className="text-2xl font-extrabold mb-5">Apply Now</h2>
               {status === "sent" ? (
                 <div className="text-center py-12">
-                  <div className="text-5xl mb-4">✅</div>
+                  <div className="text-5xl mb-4"></div>
                   <h3 className="text-xl font-bold mb-2">Application Received!</h3>
                   <p className="text-gray-500">Thank you. We'll be in touch shortly.</p>
                 </div>

@@ -32,9 +32,9 @@ export default function Footer() {
             Multi-Drop & Last-Mile Logistics across the UK. Professional delivery solutions — on time, every time.
           </p>
           <div className="flex flex-col gap-2">
-            <a href="tel:07990702743" className="text-sm text-white/50 hover:text-[#f7680b] transition-colors">📞 07990 702743</a>
-            <a href="tel:07512837585" className="text-sm text-white/50 hover:text-[#f7680b] transition-colors">📞 07512 837585</a>
-            <a href="mailto:info@seehratransport.com" className="text-sm text-white/50 hover:text-[#f7680b] transition-colors">✉️ info@seehratransport.com</a>
+            <a href="tel:07990702743" className="text-sm text-white/50 hover:text-[#f7680b] transition-colors"> 07990 702743</a>
+            <a href="tel:07512837585" className="text-sm text-white/50 hover:text-[#f7680b] transition-colors"> 07512 837585</a>
+            <a href="mailto:info@seehratransport.com" className="text-sm text-white/50 hover:text-[#f7680b] transition-colors"> info@seehratransport.com</a>
           </div>
         </div>
 
@@ -85,6 +85,29 @@ export default function Footer() {
           <div className="mt-4 flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-[#f7680b] animate-pulse" />
             <span className="text-xs text-white/30">Company No. 09462678</span>
+          </div>
+          <div className="mt-5 flex items-center gap-3">
+            <a href="https://www.instagram.com/seehratransport" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+              className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:border-[#f7680b] hover:bg-[#f7680b] transition-all group">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-white/50 group-hover:text-white transition-colors">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/seehratransport" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
+              className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:border-[#f7680b] hover:bg-[#f7680b] transition-all group">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-white/50 group-hover:text-white transition-colors">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/company/seehra-transport" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+              className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:border-[#f7680b] hover:bg-[#f7680b] transition-all group">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-white/50 group-hover:text-white transition-colors">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
           </div>
         </div>
       </div>

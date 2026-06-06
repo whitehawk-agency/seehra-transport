@@ -2,25 +2,25 @@ import Link from "next/link";
 import QuoteWidget from "@/components/QuoteWidget";
 
 const services = [
-  { href: "/services#multi-drop", icon: "🗺️", title: "Multi-Drop Delivery", desc: "Efficient multi-stop routes for businesses that need to reach multiple locations. We optimise every route for speed and cost.", tags: ["Route Optimised","Bulk Volume","POD Included"] },
-  { href: "/services#last-mile", icon: "📍", title: "Last-Mile Logistics", desc: "From depot or warehouse directly to your customer's door. GPS tracked with photo proof of delivery.", tags: ["GPS Tracked","POD","B2C & B2B"] },
-  { href: "/services#flexible", icon: "🔧", title: "Flexible Solutions", desc: "Custom delivery arrangements — dedicated vehicles, scheduled collections, out-of-hours and specialist handling.", tags: ["Custom","Dedicated","Out-of-Hours"] },
-  { href: "/services", icon: "⚡", title: "Same-Day Courier", desc: "Urgent delivery within 4–6 hours for time-critical shipments. From £24.99.", tags: ["4–6 hrs","Express"] },
-  { href: "/services", icon: "📅", title: "Next-Day Express", desc: "Next working day with AM, PM or evening time slots. From £12.99.", tags: ["Next Day","Flexible Slots"] },
-  { href: "/services", icon: "📦", title: "Standard Delivery", desc: "Cost-effective 2–3 working day service with full tracking. From £4.99.", tags: ["2–3 Days","Tracked"] },
+  { href: "/services#multi-drop", icon: "", title: "Multi-Drop Delivery", desc: "Efficient multi-stop routes for businesses that need to reach multiple locations. We optimise every route for speed and cost.", tags: ["Route Optimised","Bulk Volume","POD Included"] },
+  { href: "/services#last-mile", icon: "", title: "Last-Mile Logistics", desc: "From depot or warehouse directly to your customer's door. GPS tracked with photo proof of delivery.", tags: ["GPS Tracked","POD","B2C & B2B"] },
+  { href: "/services#flexible", icon: "", title: "Flexible Solutions", desc: "Custom delivery arrangements — dedicated vehicles, scheduled collections, out-of-hours and specialist handling.", tags: ["Custom","Dedicated","Out-of-Hours"] },
+  { href: "/services", icon: "", title: "Same-Day Courier", desc: "Urgent delivery within 4–6 hours for time-critical shipments. From £24.99.", tags: ["4–6 hrs","Express"] },
+  { href: "/services", icon: "", title: "Next-Day Express", desc: "Next working day with AM, PM or evening time slots. From £12.99.", tags: ["Next Day","Flexible Slots"] },
+  { href: "/services", icon: "", title: "Standard Delivery", desc: "Cost-effective 2–3 working day service with full tracking. From £4.99.", tags: ["2–3 Days","Tracked"] },
 ];
 
 export default function HomePage() {
   return (
     <>
-      {/* ── HERO ── */}
+      {/*  HERO  */}
       <section className="relative min-h-[88vh] flex items-center justify-center overflow-hidden text-center">
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage:"url('https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&w=1920&q=80')" }} />
-        <div className="absolute inset-0 bg-black/65" />
+        {/* TODO: Add your own hero background image here — replace the bg-[#1a1a1a] with your image */}
+        <div className="absolute inset-0 bg-[#1a1a1a]" />
         <div className="relative z-10 w-full max-w-3xl mx-auto px-4 sm:px-6 py-16">
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-[1.05] mb-5 tracking-tight">
-            Your Delivery Safe<br />
-            <span className="text-transparent bg-clip-text" style={{ backgroundImage:"linear-gradient(135deg,#e62b1e,#f7a50b)" }}>In Our Hands</span>
+          <h1 className="font-extrabold text-white mb-5 tracking-tight whitespace-nowrap" style={{ fontSize:"clamp(2.2rem, 5.5vw, 5rem)", lineHeight:"1.1" }}>
+            Your Freight Secure<br />
+            <span className="text-transparent bg-clip-text" style={{ backgroundImage:"linear-gradient(135deg,#e62b1e,#f7a50b)" }}>In Our Transit</span>
           </h1>
           <p className="text-white/75 text-base sm:text-lg leading-relaxed mb-8 max-w-xl mx-auto px-2">
             Multi-drop and last-mile logistics specialists serving businesses across the United Kingdom — on time, every time.
@@ -36,7 +36,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── MARQUEE ── */}
+      {/*  MARQUEE  */}
       <div className="bg-[#0a0a0a] border-t border-white/5 py-4 overflow-hidden">
         <div className="flex animate-marquee whitespace-nowrap">
           {Array(4).fill(["Multi-Drop Delivery","Last-Mile Logistics","Same-Day Courier","Next-Day Express","Flexible Solutions","98% On-Time","GPS Tracked","Fully Insured","Nationwide UK","West Midlands Based","From £4.99","On Time. Every Time."]).flat().map((item, i) => (
@@ -45,7 +45,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* ── OUR STORY ── */}
+      {/*  OUR STORY  */}
       <section className="py-16 sm:py-24 px-4 sm:px-6 bg-white" id="about">
         <div className="max-w-4xl mx-auto">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3 text-center">Who We Are</p>
@@ -71,7 +71,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── SERVICES ── */}
+      {/*  SERVICES  */}
       <section className="bg-gray-50 py-16 sm:py-24 px-4 sm:px-6" id="services">
         <div className="max-w-7xl mx-auto">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3 text-center">Our Expertise</p>
@@ -99,7 +99,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── PRICING ── */}
+      {/*  PRICING  */}
       <section className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3 text-center">Transparent Pricing</p>
@@ -117,7 +117,7 @@ export default function HomePage() {
                 <div className={`text-3xl font-extrabold mb-1 ${(plan as any).popular ? "text-white":"text-gray-900"}`}>{plan.price}</div>
                 <div className={`text-sm mb-5 ${(plan as any).popular ? "text-white/50":"text-gray-400"}`}>{plan.period}</div>
                 <ul className="flex flex-col gap-2 mb-6">
-                  {plan.features.map(f => <li key={f} className={`text-sm flex items-center gap-2 ${(plan as any).popular ? "text-white/70":"text-gray-600"}`}><span className="text-[#f7680b]">✓</span>{f}</li>)}
+                  {plan.features.map(f => <li key={f} className={`text-sm flex items-center gap-2 ${(plan as any).popular ? "text-white/70":"text-gray-600"}`}><span className="text-[#f7680b]"></span>{f}</li>)}
                 </ul>
                 <Link href="/contact" className={`block text-center py-3 rounded-xl font-bold text-sm transition-colors ${(plan as any).popular ? "bg-[#f7680b] text-white hover:bg-[#e55a00]":"border border-gray-200 text-gray-700 hover:border-[#f7680b] hover:text-[#f7680b]"}`}>Get Started</Link>
               </div>
@@ -127,7 +127,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── RECRUITMENT TEASER ── */}
+      {/*  RECRUITMENT TEASER  */}
       <section className="py-16 sm:py-20 px-4 sm:px-6" style={{ background:"linear-gradient(135deg,#e62b1e 0%,#f7680b 100%)" }}>
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6">
           <div className="text-center lg:text-left">

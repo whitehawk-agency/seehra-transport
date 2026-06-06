@@ -16,7 +16,7 @@ export default function AboutPage() {
     <>
       {/* Hero */}
       <section className="relative h-[55vh] min-h-[380px] flex items-end overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage:"url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1920&q=80')" }} />
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage:"url('https://images.unsplash.com/photo-1494515843206-f3117d3f51b7?auto=format&fit=crop&w=1920&q=80')" }} />
         <div className="absolute inset-0 bg-black/55" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 pb-16 w-full">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-2">About Seehra Transport</p>
@@ -36,14 +36,14 @@ export default function AboutPage() {
             <Link href="/contact" className="inline-block bg-[#f7680b] text-white px-8 py-4 rounded-xl font-bold hover:bg-[#e55a00] transition-colors">Get in Touch Today →</Link>
           </div>
           <div className="rounded-2xl overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80" alt="Delivery fleet" className="w-full h-[420px] object-cover" />
+            <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=800&q=80" alt="Delivery fleet" className="w-full h-[420px] object-cover" />
           </div>
         </div>
       </section>
 
       {/* Values — numbers + title + desc only, NO stats underneath */}
       <section className="relative py-14 sm:py-20 px-4 sm:px-6">
-        <div className="absolute inset-0 bg-cover bg-center opacity-5" style={{ backgroundImage:"url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&q=80')" }} />
+        <div className="absolute inset-0 bg-cover bg-center opacity-5" style={{ backgroundImage:"url('https://images.unsplash.com/photo-1494515843206-f3117d3f51b7?auto=format&fit=crop&w=1920&q=80')" }} />
         <div className="absolute inset-0 bg-gray-50/97" />
         <div className="relative z-10 max-w-7xl mx-auto">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3 text-center">Our Core Values</p>
@@ -64,7 +64,7 @@ export default function AboutPage() {
       {/* Why Choose Us */}
       <section className="py-14 sm:py-20 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
-          <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=800&q=80" alt="Warehouse logistics" className="rounded-2xl w-full h-80 object-cover" />
+          <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=800&q=80" alt="Warehouse logistics" className="rounded-2xl w-full h-80 object-cover" />
           <div>
             <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3">Why Choose Us</p>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight mb-5">Proven track record.<br />Modern fleet. Real support.</h2>

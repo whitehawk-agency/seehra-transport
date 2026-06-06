@@ -26,7 +26,7 @@ function TrackForm() {
         <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
           <div className="flex items-center gap-3 mb-6"><div className="w-3 h-3 rounded-full bg-green-400 animate-pulse" /><span className="font-bold text-green-700 text-sm">Shipment Located</span></div>
           <div className="flex flex-col gap-3">
-            {[["In Transit","Your parcel is with the driver","✅"],["Out for Delivery","Estimated delivery today","🚐"],["On Time","No delays reported","⏱️"]].map(([t,d,i])=>(
+            {[["In Transit","Your parcel is with the driver",""],["Out for Delivery","Estimated delivery today",""],["On Time","No delays reported","⏱"]].map(([t,d,i])=>(
               <div key={t} className="flex items-start gap-4 p-4 bg-gray-50 rounded-xl">
                 <span className="text-xl">{i}</span>
                 <div><div className="font-bold text-sm">{t}</div><div className="text-gray-500 text-xs">{d}</div></div>
@@ -38,7 +38,7 @@ function TrackForm() {
       )}
       {result === "notfound" && (
         <div className="bg-red-50 border border-red-100 rounded-2xl p-6 text-center">
-          <div className="text-3xl mb-2">❌</div>
+          <div className="text-3xl mb-2"></div>
           <h3 className="font-bold text-red-700 mb-1">Reference Not Found</h3>
           <p className="text-red-600 text-sm">Please check your reference number and postcode. Contact <a href="mailto:info@seehratransport.com" className="underline">info@seehratransport.com</a> for help.</p>
         </div>

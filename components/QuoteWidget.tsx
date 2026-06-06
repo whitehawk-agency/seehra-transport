@@ -43,7 +43,6 @@ export default function QuoteWidget() {
       {tab === "quote" ? (
         quoteStatus === "sent" ? (
           <div className="text-center py-8">
-            <div className="text-4xl mb-3">✅</div>
             <h3 className="text-gray-900 font-bold text-lg mb-2">Quote Request Sent!</h3>
             <p className="text-gray-500 text-sm">We've received your details and will email you shortly.</p>
             <button onClick={() => setQuoteStatus("idle")} className="mt-4 text-[#f7680b] text-sm underline">Request another quote</button>

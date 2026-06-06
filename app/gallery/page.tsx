@@ -5,8 +5,8 @@ const photos = [
   { url: "https://images.pexels.com/photos/4391470/pexels-photo-4391470.jpeg?auto=compress&cs=tinysrgb&w=800", alt: "Multi-drop delivery parcels" },
   { url: "https://images.pexels.com/photos/4391478/pexels-photo-4391478.jpeg?auto=compress&cs=tinysrgb&w=800", alt: "Driver recruitment" },
   { url: "https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=800", alt: "Delivery vans fleet" },
-  { url: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80", alt: "Warehouse operations" },
-  { url: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80", alt: "Delivery fleet on the road" },
+  { url: "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=800&q=80", alt: "Warehouse operations" },
+  { url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80", alt: "Delivery fleet on the road" },
   { url: "https://images.pexels.com/photos/4481259/pexels-photo-4481259.jpeg?auto=compress&cs=tinysrgb&w=800", alt: "Parcel sorting" },
 ];
 export default function GalleryPage() {

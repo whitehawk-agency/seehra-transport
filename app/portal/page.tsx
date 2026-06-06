@@ -5,7 +5,7 @@ export default function PortalPage() {
   return (
     <section className="min-h-screen bg-gray-50 flex items-center justify-center px-6 py-24">
       <div className="bg-white rounded-2xl p-10 border border-gray-100 shadow-sm w-full max-w-md text-center">
-        <div className="w-14 h-14 rounded-2xl mx-auto mb-5 flex items-center justify-center text-2xl" style={{ background:"linear-gradient(135deg,#e62b1e,#f7680b)" }}>🔐</div>
+        <div className="w-14 h-14 rounded-2xl mx-auto mb-5 flex items-center justify-center text-2xl" style={{ background:"linear-gradient(135deg,#e62b1e,#f7680b)" }}></div>
         <h1 className="text-3xl font-extrabold mb-2">Client Portal</h1>
         <p className="text-gray-500 text-sm mb-8">Business account access for managing bookings, tracking shipments, and viewing invoices.</p>
         <div className="flex flex-col gap-3 mb-6">

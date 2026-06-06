@@ -3,18 +3,18 @@ import Link from "next/link";
 export const metadata: Metadata = { title: "Our Services", description: "Multi-drop delivery, last-mile logistics, same-day courier, next-day and flexible solutions across the UK." };
 
 const services = [
-  { id:"multi-drop", icon:"🗺️", title:"Multi-Drop Delivery", subtitle:"Efficient multi-location delivery solutions",
-    img:"https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&w=800&q=80",
+  { id:"multi-drop", icon:"", title:"Multi-Drop Delivery", subtitle:"Efficient multi-location delivery solutions",
+    img:"https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1920&q=80",
     desc:"Our multi-drop delivery service is designed for businesses that need to reach multiple locations efficiently. Whether you're delivering to 5 locations or 50, we optimise routes to ensure timely delivery at every stop.",
     includes:["Optimised route planning","Real-time tracking for all deliveries","Proof of delivery at each location","Flexible scheduling to match your business","Professional drivers trained in customer service","Same-day and next-day options available"],
     idealFor:["Retail chains and outlets","Wholesale distributors","Food and beverage suppliers","Construction material suppliers","Pharmaceutical companies"] },
-  { id:"last-mile", icon:"📍", title:"Last-Mile Logistics", subtitle:"Direct delivery to your customers' doorsteps",
-    img:"https://images.unsplash.com/photo-1530521954074-e64f6810b32d?auto=format&fit=crop&w=800&q=80",
+  { id:"last-mile", icon:"", title:"Last-Mile Logistics", subtitle:"Direct delivery to your customers' doorsteps",
+    img:"https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=800&q=80",
     desc:"Last-mile delivery is often the most critical part of the logistics chain. We specialise in getting your products from our depot or warehouse directly to your customers' doors — ensuring a positive delivery experience.",
     includes:["Direct delivery to residential and business addresses","Customisable delivery time windows","SMS and email delivery notifications","Photo proof of delivery","Signature capture options","Returns management"],
     idealFor:["E-commerce businesses","Online retailers","Subscription box services","Direct-to-consumer brands","Furniture and appliance retailers"] },
-  { id:"flexible", icon:"🔧", title:"Flexible Solutions", subtitle:"Custom delivery tailored to your needs",
-    img:"https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
+  { id:"flexible", icon:"", title:"Flexible Solutions", subtitle:"Custom delivery tailored to your needs",
+    img:"https://images.unsplash.com/photo-1609429019995-8c40f49535a5?auto=format&fit=crop&w=800&q=80",
     desc:"Every business has unique logistics requirements. Our flexible solutions adapt to your specific needs — dedicated vehicles, scheduled collections, or specialised handling. From one-off urgent deliveries to long-term contracts.",
     includes:["Dedicated vehicle hire","Scheduled regular collections","Out-of-hours delivery options","Weekend and bank holiday deliveries","Fragile item handling","Two-person delivery teams"],
     idealFor:["Businesses with irregular needs","High-value or fragile goods","Out-of-hours requirements","Long-term contract clients","Businesses needing dedicated vehicles"] },
@@ -24,7 +24,7 @@ export default function ServicesPage() {
   return (
     <>
       <section className="relative h-[45vh] min-h-[300px] flex items-end overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage:"url('https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=1920&q=80')" }} />
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage:"url('https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=800&q=80')" }} />
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pb-10 sm:pb-16 w-full">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-2">Our Expertise</p>
@@ -48,7 +48,7 @@ export default function ServicesPage() {
                 <div className="bg-white border border-gray-100 rounded-2xl p-4 shadow-sm">
                   <h3 className="font-bold mb-3 text-xs uppercase tracking-widest text-gray-400">What's Included</h3>
                   <ul className="flex flex-col gap-1.5">
-                    {s.includes.map(item => <li key={item} className="flex items-start gap-2 text-xs text-gray-700"><span className="text-[#f7680b] font-bold flex-shrink-0">✓</span>{item}</li>)}
+                    {s.includes.map(item => <li key={item} className="flex items-start gap-2 text-xs text-gray-700"><span className="text-[#f7680b] font-bold flex-shrink-0"></span>{item}</li>)}
                   </ul>
                 </div>
                 <div className="bg-[#0a0a0a] rounded-2xl p-4">
@@ -80,7 +80,7 @@ export default function ServicesPage() {
                 <div className={`text-3xl font-extrabold mb-1 ${(plan as any).popular ? "text-white":"text-gray-900"}`}>{plan.price}</div>
                 <div className={`text-xs mb-4 ${(plan as any).popular ? "text-white/50":"text-gray-400"}`}>{plan.period}</div>
                 <ul className="flex flex-col gap-1.5 mb-5">
-                  {plan.features.map(f => <li key={f} className={`text-xs flex items-center gap-2 ${(plan as any).popular ? "text-white/70":"text-gray-600"}`}><span className="text-[#f7680b]">✓</span>{f}</li>)}
+                  {plan.features.map(f => <li key={f} className={`text-xs flex items-center gap-2 ${(plan as any).popular ? "text-white/70":"text-gray-600"}`}><span className="text-[#f7680b]"></span>{f}</li>)}
                 </ul>
                 <Link href="/contact" className={`block text-center py-2.5 rounded-xl font-bold text-sm transition-colors ${(plan as any).popular ? "bg-[#f7680b] text-white hover:bg-[#e55a00]":"border border-gray-200 text-gray-700 hover:border-[#f7680b] hover:text-[#f7680b]"}`}>Get Started</Link>
               </div>
@@ -90,7 +90,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="relative py-14 sm:py-20 px-4 sm:px-6">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage:"url('https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1920&q=80')" }} />
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage:"url('https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=800&q=80')" }} />
         <div className="absolute inset-0 bg-gray-900/90" />
         <div className="relative z-10 max-w-7xl mx-auto">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3 text-center">For Businesses</p>
@@ -98,12 +98,12 @@ export default function ServicesPage() {
           <p className="text-white/60 text-center mb-8 max-w-lg mx-auto text-sm">Tailored logistics for high-volume businesses with advanced integration and dedicated support.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              { icon:"📊", title:"Volume Discounts", desc:"Competitive pricing for businesses shipping 100+ parcels per week." },
-              { icon:"👤", title:"Dedicated Account Manager", desc:"A single point of contact who understands your business." },
-              { icon:"🔗", title:"API Integration", desc:"RESTful API for booking, tracking, and managing deliveries." },
-              { icon:"🛒", title:"Marketplace Integrations", desc:"Connect Shopify, Amazon, eBay, and WooCommerce." },
-              { icon:"💳", title:"Flexible Payment Terms", desc:"NET-30 and NET-60 options, consolidated monthly invoicing." },
-              { icon:"📞", title:"Priority Business Support", desc:"Phone and email support with priority handling." },
+              { icon:"", title:"Volume Discounts", desc:"Competitive pricing for businesses shipping 100+ parcels per week." },
+              { icon:"", title:"Dedicated Account Manager", desc:"A single point of contact who understands your business." },
+              { icon:"", title:"API Integration", desc:"RESTful API for booking, tracking, and managing deliveries." },
+              { icon:"", title:"Marketplace Integrations", desc:"Connect Shopify, Amazon, eBay, and WooCommerce." },
+              { icon:"", title:"Flexible Payment Terms", desc:"NET-30 and NET-60 options, consolidated monthly invoicing." },
+              { icon:"", title:"Priority Business Support", desc:"Phone and email support with priority handling." },
             ].map(f => (
               <div key={f.title} className="bg-white/8 backdrop-blur-sm rounded-2xl p-5 border border-white/10 hover:border-orange-500/40 transition-all">
                 <div className="text-2xl mb-2">{f.icon}</div>

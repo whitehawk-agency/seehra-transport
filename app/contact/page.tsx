@@ -19,7 +19,7 @@ export default function ContactPage() {
     <>
       {/* Hero */}
       <section className="relative h-[45vh] min-h-[320px] flex items-end overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage:"url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1920&q=80')" }} />
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage:"url('https://images.unsplash.com/photo-1494515843206-f3117d3f51b7?auto=format&fit=crop&w=1920&q=80')" }} />
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 pb-14 w-full">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-2">Get In Touch</p>
@@ -33,11 +33,11 @@ export default function ContactPage() {
             <h2 className="text-3xl font-extrabold mb-5">We're here to help</h2>
             <p className="text-gray-600 leading-relaxed mb-8">Whether you're enquiring about delivery services, discussing a contract, or applying to join our driver network — our team is ready to help.</p>
             {[
-              { icon:"✉️", label:"Email", value:"info@seehratransport.com", href:"mailto:info@seehratransport.com" },
-              { icon:"📞", label:"Phone", value:"07990 702743", href:"tel:07990702743" },
-              { icon:"📞", label:"Secondary", value:"07512 837585", href:"tel:07512837585" },
-              { icon:"📍", label:"Head Office", value:"Unit 5 & 6 Park Lane Industrial Estate, Park Lane, Oldbury, West Midlands, B69 4JX" },
-              { icon:"🕐", label:"Hours", value:"Monday – Friday, 9:00 AM – 5:00 PM · Sat–Sun Closed" },
+              { icon:"", label:"Email", value:"info@seehratransport.com", href:"mailto:info@seehratransport.com" },
+              { icon:"", label:"Phone", value:"07990 702743", href:"tel:07990702743" },
+              { icon:"", label:"Secondary", value:"07512 837585", href:"tel:07512837585" },
+              { icon:"", label:"Head Office", value:"Unit 5 & 6 Park Lane Industrial Estate, Park Lane, Oldbury, West Midlands, B69 4JX" },
+              { icon:"", label:"Hours", value:"Monday – Friday, 9:00 AM – 5:00 PM · Sat–Sun Closed" },
             ].map(d => (
               <div key={d.label} className="flex items-start gap-4 mb-5">
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center text-lg flex-shrink-0" style={{ background:"linear-gradient(135deg,#e62b1e,#f7680b)" }}>{d.icon}</div>
@@ -56,7 +56,7 @@ export default function ContactPage() {
             <h2 className="text-2xl font-extrabold mb-5">Send us a message</h2>
             {status === "sent" ? (
               <div className="text-center py-12">
-                <div className="text-5xl mb-4">✅</div>
+                <div className="text-5xl mb-4"></div>
                 <h3 className="text-xl font-bold mb-2">Message Sent!</h3>
                 <p className="text-gray-500">Thank you. We'll get back to you as soon as possible.</p>
               </div>
