@@ -39,3 +39,8 @@ a[class*="rounded"],
 a[class*="px-"] {
   font-family: "Geovano Sans", ui-sans-serif, system-ui, sans-serif !important;
 }
+
+/* Override - descriptions and body text back to Inter */
+p, li, span, label, input, select, textarea, td {
+  font-family: ui-sans-serif, system-ui, sans-serif !important;
+}
