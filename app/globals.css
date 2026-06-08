@@ -44,3 +44,8 @@ a[class*="px-"] {
 p, li, span, label, input, select, textarea, td {
   font-family: ui-sans-serif, system-ui, sans-serif !important;
 }
+
+/* Override Geovano back to normal for all non-heading text */
+p, li, span, label, input, select, textarea, td, div {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
