@@ -32,3 +32,10 @@ h1, h2, h3, h4, h5, h6,
   to   { transform: translateX(-50%); }
 }
 .animate-marquee { animation: marquee 35s linear infinite; }
+
+/* Geovano on all buttons */
+button,
+a[class*="rounded"],
+a[class*="px-"] {
+  font-family: "Geovano Sans", ui-sans-serif, system-ui, sans-serif !important;
+}

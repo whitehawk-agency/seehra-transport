@@ -18,7 +18,7 @@ export default function HomePage() {
         {/* TODO: Add your own hero background image here — replace the bg-[#1a1a1a] with your image */}
         <div className="absolute inset-0 bg-[#1a1a1a]" />
         <div className="relative z-10 w-full max-w-3xl mx-auto px-4 sm:px-6 py-16">
-          <h1 className="font-extrabold text-white mb-5 tracking-tight text-center w-full" style={{ fontSize:"clamp(1.6rem, 3.5vw, 3.8rem)", lineHeight:"1.1" }}>
+          <h1 className="font-extrabold text-white mb-5 tracking-tight text-center w-full" style={{ fontSize:"clamp(1.6rem, 3.5vw, 4.1rem)", lineHeight:"1.1" }}>
             Your Freight Secure<br />
             <span className="text-transparent bg-clip-text" style={{ backgroundImage:"linear-gradient(135deg,#e62b1e,#f7a50b)" }}>In Our Transit</span>
           </h1>
