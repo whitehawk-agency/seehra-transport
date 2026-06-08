@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* ── Geovano Sans ── */
 @font-face {
   font-family: "Geovano Sans";
   src: url("/fonts/GeovanoSans-Regular.otf") format("opentype");
@@ -9,18 +8,18 @@
   font-display: swap;
 }
 
-:root {
-  --font-display: "Geovano Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-body: ui-sans-serif, system-ui, sans-serif;
+html { scroll-behavior: smooth; }
+
+body { font-family: ui-sans-serif, system-ui, sans-serif; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Geovano Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
-html { scroll-behavior: smooth; }
-body { font-family: var(--font-body); }
-
-/* All headings use Geovano Sans */
-h1, h2, h3, h4, h5, h6,
-.font-display {
-  font-family: "Geovano Sans", ui-sans-serif, system-ui, sans-serif !important;
+button,
+a[class*="rounded"][class*="font-bold"],
+a[class*="px-"][class*="py-"][class*="font-bold"] {
+  font-family: "Geovano Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
 ::-webkit-scrollbar { width: 5px; }
@@ -32,20 +31,3 @@ h1, h2, h3, h4, h5, h6,
   to   { transform: translateX(-50%); }
 }
 .animate-marquee { animation: marquee 35s linear infinite; }
-
-/* Geovano on all buttons */
-button,
-a[class*="rounded"],
-a[class*="px-"] {
-  font-family: "Geovano Sans", ui-sans-serif, system-ui, sans-serif !important;
-}
-
-/* Override - descriptions and body text back to Inter */
-p, li, span, label, input, select, textarea, td {
-  font-family: ui-sans-serif, system-ui, sans-serif !important;
-}
-
-/* Override Geovano back to normal for all non-heading text */
-p, li, span, label, input, select, textarea, td, div {
-  font-family: ui-sans-serif, system-ui, sans-serif;
-}
