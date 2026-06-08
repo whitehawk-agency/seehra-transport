@@ -134,7 +134,7 @@ export default function HomePage() {
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight mb-3">Drive with Seehra.</h2>
             <p className="text-white/80 text-base sm:text-lg max-w-xl">Hiring self-employed delivery drivers for East & West Midlands routes. Weekly pay, training provided, fuel paid on top of your day rate.</p>
           </div>
-          <Link href="/recruitment" className="bg-white text-[#f7680b] px-8 py-4 rounded-xl font-bold text-base whitespace-nowrap hover:bg-orange-50 transition-colors shadow-xl w-full lg:w-auto text-center">View Careers →</Link>
+          <Link href="/recruitment-portal" className="bg-white text-[#f7680b] px-8 py-4 rounded-xl font-bold text-base whitespace-nowrap hover:bg-orange-50 transition-colors shadow-xl w-full lg:w-auto text-center">View Careers →</Link>
         </div>
       </section>
     </>

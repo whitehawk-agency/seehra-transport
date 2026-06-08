@@ -37,42 +37,19 @@ export default function RecruitmentPortalPage() {
   return (
     <div className="min-h-screen" style={{ background: "#f3f2ef" }}>
 
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-40">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
-          <Link href="/" className="flex-shrink-0">
-            <Image src="/logo-cropped.png" alt="Seehra Transport" width={160} height={62}
-              className="object-contain" style={{ height: "36px", width: "auto" }} priority />
-          </Link>
-          <div className="flex-1 max-w-md hidden sm:block">
-            <input
-              type="text"
-              placeholder="Search jobs..."
-              className="w-full border border-gray-200 rounded-full px-5 py-2.5 text-sm focus:outline-none focus:border-[#f7680b] transition-colors bg-gray-50"
-              value={search}
-              onChange={e => setSearch(e.target.value)}
-            />
-          </div>
-          <div className="flex items-center gap-2">
-            <Link href="/recruitment-portal/admin"
-              className="hidden sm:block text-xs text-gray-500 hover:text-[#f7680b] transition-colors font-medium border border-gray-200 px-3 py-2 rounded-lg">
-              Admin
-            </Link>
-            <Link href="/contact"
-              className="text-white text-sm font-bold px-5 py-2.5 rounded-full transition-all hover:opacity-90"
-              style={{ background: "linear-gradient(135deg,#e62b1e,#f7680b)" }}>
-              Post a Job
-            </Link>
-          </div>
-        </div>
-      </header>
+
 
       {/* Hero banner */}
       <div style={{ background: "linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 100%)" }} className="py-14 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div>
-              <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3">Seehra Transport Careers</p>
+              <div className="flex items-center justify-between mb-3">
+                <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase">Seehra Transport Careers</p>
+                <Link href="/recruitment-portal/admin" className="text-white/40 hover:text-white/70 text-xs font-medium transition-colors border border-white/10 px-3 py-1.5 rounded-lg">
+                  Admin
+                </Link>
+              </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-4">
                 Build your career<br />
                 <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(135deg,#e62b1e,#f7a50b)" }}>
@@ -82,8 +59,21 @@ export default function RecruitmentPortalPage() {
               <p className="text-white/60 leading-relaxed mb-6 text-sm sm:text-base">
                 Join one of the UK's fastest-growing logistics companies. We're building a team of professionals who take pride in keeping Britain moving — on time, every time.
               </p>
+              {/* Search bar in hero */}
+              <div className="bg-white rounded-xl flex gap-2 p-1.5 mb-5 max-w-lg">
+                <input
+                  type="text"
+                  placeholder="Search jobs or location..."
+                  className="flex-1 px-4 py-2 text-sm text-gray-900 focus:outline-none bg-transparent"
+                  value={search}
+                  onChange={e => setSearch(e.target.value)}
+                />
+                <button className="bg-[#f7680b] text-white px-5 py-2 rounded-lg font-bold text-sm hover:bg-[#e55a00] transition-colors whitespace-nowrap">
+                  Search
+                </button>
+              </div>
               <div className="flex flex-wrap gap-3">
-                <a href="#jobs" className="bg-[#f7680b] text-white px-6 py-3 rounded-full font-bold text-sm hover:bg-[#e55a00] transition-colors">
+                <a href="#jobs" className="bg-white text-gray-900 px-6 py-3 rounded-full font-bold text-sm hover:bg-gray-100 transition-colors">
                   View Open Roles
                 </a>
                 <Link href="/about" className="border border-white/20 text-white px-6 py-3 rounded-full font-bold text-sm hover:border-white/50 transition-colors">
@@ -135,13 +125,6 @@ export default function RecruitmentPortalPage() {
           <div className="lg:col-span-1">
             <div className="bg-white rounded-2xl border border-gray-200 p-5 sticky top-24">
               <h3 className="font-bold text-sm mb-4 text-gray-900">Filter Jobs</h3>
-
-              {/* Mobile search */}
-              <div className="sm:hidden mb-4">
-                <input type="text" placeholder="Search jobs..."
-                  className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#f7680b]"
-                  value={search} onChange={e => setSearch(e.target.value)} />
-              </div>
 
               <div className="mb-4">
                 <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Job Type</p>

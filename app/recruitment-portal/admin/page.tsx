@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Job, Application, ApplicationStatus } from "@/lib/jobs";
 
@@ -16,6 +15,8 @@ const STATUS_STYLES: Record<ApplicationStatus, { bg: string; text: string; label
 const ALL_STATUSES: ApplicationStatus[] = ["new","reviewing","interview","offered","hired","rejected"];
 
 export default function AdminDashboard() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [adminKey, setAdminKey] = useState("");
   const [authed, setAuthed] = useState(false);
   const [authError, setAuthError] = useState(false);
@@ -30,12 +31,20 @@ export default function AdminDashboard() {
   const [postStatus, setPostStatus] = useState<"idle"|"saving"|"saved">("idle");
 
   async function login() {
-    if (!adminKey.trim()) return;
+    if (!email.trim() || !password.trim()) return;
     setLoading(true); setAuthError(false);
     try {
+      const authRes = await fetch("/api/admin-auth", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+      if (!authRes.ok) { setAuthError(true); setLoading(false); return; }
+      const { token } = await authRes.json();
+      setAdminKey(token);
       const [jRes, aRes] = await Promise.all([
         fetch("/api/jobs"),
-        fetch("/api/applications", { headers: { "x-admin-key": adminKey } }),
+        fetch("/api/applications", { headers: { "x-admin-key": token } }),
       ]);
       if (aRes.ok) {
         setJobs(await jRes.json());
@@ -97,22 +106,51 @@ export default function AdminDashboard() {
   if (!authed) return (
     <div className="min-h-screen flex items-center justify-center px-4" style={{ background:"linear-gradient(135deg,#0a0a0a,#1a1a1a)" }}>
       <div className="bg-white rounded-2xl p-8 w-full max-w-sm shadow-2xl">
-        <div className="flex justify-center mb-6">
-          <Image src="/logo-cropped.png" alt="Seehra Transport" width={160} height={62} className="object-contain" style={{ height:"44px", width:"auto" }} />
-        </div>
         <h1 className="text-xl font-extrabold text-center mb-1">Recruitment Portal</h1>
         <p className="text-gray-400 text-sm text-center mb-6">Admin access only</p>
-        <input type="password" placeholder="Enter admin key"
-          className={`${inp} mb-3 text-center`}
-          value={adminKey} onChange={e => setAdminKey(e.target.value)}
-          onKeyDown={e => e.key === "Enter" && login()} />
-        {authError && <p className="text-red-500 text-xs text-center mb-3">Invalid key. Please try again.</p>}
-        <button onClick={login} disabled={loading}
-          className="w-full py-3 rounded-xl font-bold text-white text-sm hover:opacity-90 disabled:opacity-50 transition-all"
+
+        <div className="flex flex-col gap-3 mb-3">
+          <div>
+            <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-1.5">Email Address</label>
+            <input
+              type="email"
+              placeholder="admin@seehratransport.com"
+              className={inp}
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              onKeyDown={e => e.key === "Enter" && login()}
+              autoComplete="email"
+            />
+          </div>
+          <div>
+            <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-1.5">Password</label>
+            <input
+              type="password"
+              placeholder="Enter your password"
+              className={inp}
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              onKeyDown={e => e.key === "Enter" && login()}
+              autoComplete="current-password"
+            />
+          </div>
+        </div>
+
+        {authError && (
+          <div className="bg-red-50 border border-red-100 rounded-xl p-3 mb-3 text-center">
+            <p className="text-red-600 text-xs font-semibold">Invalid email or password. Please try again.</p>
+          </div>
+        )}
+
+        <button onClick={login} disabled={loading || !email || !password}
+          className="w-full py-3 rounded-xl font-bold text-white text-sm hover:opacity-90 disabled:opacity-50 transition-all mt-1"
           style={{ background:"linear-gradient(135deg,#e62b1e,#f7680b)" }}>
           {loading ? "Signing in..." : "Sign In →"}
         </button>
-        <p className="text-gray-400 text-xs text-center mt-4">Set <code className="bg-gray-100 px-1 rounded">ADMIN_KEY</code> in Vercel env vars</p>
+
+        <p className="text-gray-400 text-xs text-center mt-5 leading-relaxed">
+          Set <code className="bg-gray-100 px-1 rounded text-gray-600">ADMIN_EMAIL</code> and <code className="bg-gray-100 px-1 rounded text-gray-600">ADMIN_PASSWORD</code> in your Vercel environment variables.
+        </p>
       </div>
     </div>
   );
@@ -130,10 +168,8 @@ export default function AdminDashboard() {
       {/* Topbar */}
       <header className="bg-white border-b border-gray-200 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <Image src="/logo-cropped.png" alt="Seehra Transport" width={140} height={54} className="object-contain" style={{ height:"32px", width:"auto" }} />
-            <span className="hidden sm:block text-gray-300">|</span>
-            <span className="hidden sm:block text-sm font-bold text-gray-600">Recruitment Admin</span>
+          <div className="flex items-center gap-2">
+            <span className="text-sm font-bold text-gray-700">Recruitment Admin</span>
           </div>
           <div className="flex items-center gap-3">
             <Link href="/recruitment-portal" target="_blank"

@@ -52,24 +52,20 @@ export default function JobDetailPage({ params }: { params: Promise<{ slug: stri
 
   return (
     <div className="min-h-screen" style={{ background: "#f3f2ef" }}>
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-40">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
-          <Link href="/recruitment-portal" className="flex items-center gap-2 text-gray-500 hover:text-gray-900 text-sm font-medium transition-colors">
-            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+      {/* Breadcrumb - sits under main site header */}
+      <div className="bg-white border-b border-gray-100">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-11 flex items-center justify-between">
+          <Link href="/recruitment-portal" className="flex items-center gap-1.5 text-gray-500 hover:text-[#f7680b] text-sm font-medium transition-colors">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
             All Jobs
           </Link>
-          <Link href="/">
-            <Image src="/logo-cropped.png" alt="Seehra Transport" width={160} height={62}
-              className="object-contain" style={{ height: "32px", width: "auto" }} priority />
-          </Link>
           <button onClick={() => setShowForm(true)}
-            className="text-white text-sm font-bold px-5 py-2.5 rounded-full hover:opacity-90 transition-all"
+            className="text-white text-xs font-bold px-5 py-2 rounded-full hover:opacity-90 transition-all"
             style={{ background: "linear-gradient(135deg,#e62b1e,#f7680b)" }}>
             Apply Now
           </button>
         </div>
-      </header>
+      </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6">
         <div className="grid lg:grid-cols-3 gap-6">
