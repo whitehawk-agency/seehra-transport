@@ -10,7 +10,7 @@ export default function ComingSoonPage() {
 
       <div className="relative z-10 max-w-3xl w-full">
         <div className="flex justify-center mb-10">
-          <Image src="/logo-footer-cropped.png" alt="Seehra Transport" width={340} height={133} style={{ height: "75px", width: "auto", mixBlendMode: "screen" as const }} priority />
+          <Image src="/logo-white.png" alt="Seehra Transport" width={340} height={133} style={{ height: "75px", width: "auto", height: "75px", width: "auto" }} priority />
         </div>
 
         <h1 className="font-extrabold text-white mb-6 whitespace-nowrap" style={{ fontSize: "clamp(2.5rem, 8vw, 7rem)", lineHeight: 1 }}>
