@@ -12,7 +12,7 @@ export default function ComingSoonPage() {
         <div className="w-16 h-1 mx-auto mb-8 rounded-full" style={{ background: "linear-gradient(90deg,#e62b1e,#f7680b)" }} />
         <p className="text-white/40 text-sm mb-4">In the meantime, get in touch:</p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <a href="mailto:info@seehratransport.com" className="text-white/70 hover:text-[#f7680b] transition-colors text-sm font-semibold border border-white/10 px-6 py-3 rounded-xl hover:border-[#f7680b]">info@seehratransport.com</a>
+          <a href="mailto:admin@seehratransport.com" className="text-white/70 hover:text-[#f7680b] transition-colors text-sm font-semibold border border-white/10 px-6 py-3 rounded-xl hover:border-[#f7680b]">admin@seehratransport.com</a>
           <a href="tel:07990702743" className="text-white/70 hover:text-[#f7680b] transition-colors text-sm font-semibold border border-white/10 px-6 py-3 rounded-xl hover:border-[#f7680b]">07990 702743</a>
         </div>
       </div>
