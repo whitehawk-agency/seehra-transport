@@ -1,7 +1,12 @@
+"use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 
 export default function Footer() {
+  const pathname = usePathname();
+  if (pathname.startsWith("/coming-soon")) return null;
+
   return (
     <footer className="bg-[#0a0a0a] text-white">
       <div className="overflow-hidden border-b border-white/10 py-5">

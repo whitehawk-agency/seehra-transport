@@ -25,6 +25,8 @@ export default function Header() {
 
   useEffect(() => { setMobileOpen(false); }, [pathname]);
 
+  if (pathname.startsWith("/coming-soon")) return null;
+
   return (
     <>
       <div className="bg-[#f7680b] text-white text-center py-2.5 px-4 text-xs sm:text-sm font-medium leading-snug">
