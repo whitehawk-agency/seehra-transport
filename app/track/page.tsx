@@ -9,7 +9,6 @@ function TrackForm() {
   const inp = "w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#f7680b] transition-colors";
   function track(e: React.FormEvent) {
     e.preventDefault();
-    // In production this calls the backend. For now show a demo state.
     setResult(ref.trim().length > 3 ? "found" : "notfound");
   }
   return (
@@ -23,17 +22,18 @@ function TrackForm() {
         </div>
       </form>
       {result === "found" && (
-        <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
-          <div className="flex items-center gap-3 mb-6"><div className="w-3 h-3 rounded-full bg-green-400 animate-pulse" /><span className="font-bold text-green-700 text-sm">Shipment Located</span></div>
-          <div className="flex flex-col gap-3">
-            {[["In Transit","Your parcel is with the driver",""],["Out for Delivery","Estimated delivery today",""],["On Time","No delays reported","⏱"]].map(([t,d,i])=>(
-              <div key={t} className="flex items-start gap-4 p-4 bg-gray-50 rounded-xl">
-                <span className="text-xl">{i}</span>
-                <div><div className="font-bold text-sm">{t}</div><div className="text-gray-500 text-xs">{d}</div></div>
-              </div>
-            ))}
+        <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm text-center">
+          <div className="w-12 h-12 rounded-full bg-orange-50 flex items-center justify-center mx-auto mb-4">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#f7680b" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           </div>
-          <p className="text-gray-400 text-xs mt-4 text-center">For live updates, contact us at info@seehratransport.com</p>
+          <h3 className="font-extrabold text-lg mb-2">We\'ll get your update to you</h3>
+          <p className="text-gray-500 text-sm mb-5 leading-relaxed">
+            Thanks — to give you the most accurate, up-to-date status for reference <strong className="text-gray-700">{ref}</strong>, our team will confirm your shipment\'s progress directly. Please contact us and quote your reference and postcode.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href={`mailto:info@seehratransport.com?subject=Tracking%20enquiry%20-%20${encodeURIComponent(ref)}`} className="text-white text-sm font-bold px-6 py-3 rounded-xl transition-all hover:opacity-90" style={{ background:"linear-gradient(135deg,#e62b1e,#f7680b)" }}>Email Us</a>
+            <a href="tel:07990702743" className="border border-gray-200 text-gray-700 text-sm font-bold px-6 py-3 rounded-xl hover:border-[#f7680b] hover:text-[#f7680b] transition-colors">Call 07990 702743</a>
+          </div>
         </div>
       )}
       {result === "notfound" && (
@@ -53,7 +53,7 @@ export default function TrackPage() {
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-4">Shipment Tracking</p>
           <h1 className="text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-4">Track your order</h1>
-          <p className="text-white/60 max-w-md mx-auto">Enter your tracking reference and delivery postcode for a live status update on your shipment.</p>
+          <p className="text-white/60 max-w-md mx-auto">Enter your tracking reference and delivery postcode and our team will get you a status update on your shipment.</p>
         </div>
       </section>
       <section className="py-24 px-6 bg-gray-50">

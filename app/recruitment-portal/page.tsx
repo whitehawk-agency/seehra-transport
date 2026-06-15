@@ -44,12 +44,7 @@ export default function RecruitmentPortalPage() {
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div>
-              <div className="flex items-center justify-between mb-3">
-                <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase">Seehra Transport Careers</p>
-                <Link href="/recruitment-portal/admin" className="text-white/40 hover:text-white/70 text-xs font-medium transition-colors border border-white/10 px-3 py-1.5 rounded-lg">
-                  Admin
-                </Link>
-              </div>
+              <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3">Seehra Transport Careers</p>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-4">
                 Build your career<br />
                 <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(135deg,#e62b1e,#f7a50b)" }}>

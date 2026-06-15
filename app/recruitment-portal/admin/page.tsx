@@ -114,7 +114,7 @@ export default function AdminDashboard() {
             <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-1.5">Email Address</label>
             <input
               type="email"
-              placeholder="admin@seehratransport.com"
+              placeholder="Email address"
               className={inp}
               value={email}
               onChange={e => setEmail(e.target.value)}
@@ -148,9 +148,7 @@ export default function AdminDashboard() {
           {loading ? "Signing in..." : "Sign In →"}
         </button>
 
-        <p className="text-gray-400 text-xs text-center mt-5 leading-relaxed">
-          Set <code className="bg-gray-100 px-1 rounded text-gray-600">ADMIN_EMAIL</code> and <code className="bg-gray-100 px-1 rounded text-gray-600">ADMIN_PASSWORD</code> in your Vercel environment variables.
-        </p>
+
       </div>
     </div>
   );

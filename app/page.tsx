@@ -5,9 +5,9 @@ const services = [
   { href: "/services#multi-drop", icon: "", title: "Multi-Drop Delivery", desc: "Efficient multi-stop routes for businesses that need to reach multiple locations. We optimise every route for speed and cost.", tags: ["Route Optimised","Bulk Volume","POD Included"] },
   { href: "/services#last-mile", icon: "", title: "Last-Mile Logistics", desc: "From depot or warehouse directly to your customer's door. GPS tracked with photo proof of delivery.", tags: ["GPS Tracked","POD","B2C & B2B"] },
   { href: "/services#flexible", icon: "", title: "Flexible Solutions", desc: "Custom delivery arrangements — dedicated vehicles, scheduled collections, out-of-hours and specialist handling.", tags: ["Custom","Dedicated","Out-of-Hours"] },
-  { href: "/services", icon: "", title: "Same-Day Courier", desc: "Urgent delivery within 4–6 hours for time-critical shipments. From £24.99.", tags: ["4–6 hrs","Express"] },
-  { href: "/services", icon: "", title: "Next-Day Express", desc: "Next working day with AM, PM or evening time slots. From £12.99.", tags: ["Next Day","Flexible Slots"] },
-  { href: "/services", icon: "", title: "Standard Delivery", desc: "Cost-effective 2–3 working day service with full tracking. From £4.99.", tags: ["2–3 Days","Tracked"] },
+  { href: "/services#pricing", icon: "", title: "Same-Day Courier", desc: "Urgent delivery within 4–6 hours for time-critical shipments. From £24.99.", tags: ["4–6 hrs","Express"] },
+  { href: "/services#pricing", icon: "", title: "Next-Day Express", desc: "Next working day with AM, PM or evening time slots. From £12.99.", tags: ["Next Day","Flexible Slots"] },
+  { href: "/services#pricing", icon: "", title: "Standard Delivery", desc: "Cost-effective 2–3 working day service with full tracking. From £4.99.", tags: ["2–3 Days","Tracked"] },
 ];
 
 export default function HomePage() {
@@ -15,10 +15,11 @@ export default function HomePage() {
     <>
       {/*  HERO  */}
       <section className="relative min-h-[88vh] flex items-center justify-center overflow-hidden text-center">
-        {/* TODO: Add your own hero background image here — replace the bg-[#1a1a1a] with your image */}
-        <div className="absolute inset-0 bg-[#1a1a1a]" />
+        {/* Hero background — swap the URL below for your own image when ready */}
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1920&q=80')" }} />
+        <div className="absolute inset-0 bg-black/70" />
         <div className="relative z-10 w-full max-w-3xl mx-auto px-4 sm:px-6 py-16">
-          <h1 className="font-extrabold text-white mb-5 tracking-tight text-center w-full" style={{ fontSize:"clamp(1.6rem, 3.5vw, 4.1rem)", lineHeight:"1.1" }}>
+          <h1 className="font-extrabold text-white mb-5 tracking-tight text-center w-full" style={{ fontSize:"clamp(2rem, 5vw, 4.5rem)", lineHeight:"1.1" }}>
             Your Freight Secure<br />
             <span className="text-transparent bg-clip-text" style={{ backgroundImage:"linear-gradient(135deg,#e62b1e,#f7a50b)" }}>In Our Transit</span>
           </h1>
@@ -39,7 +40,7 @@ export default function HomePage() {
       {/*  MARQUEE  */}
       <div className="bg-[#0a0a0a] border-t border-white/5 py-4 overflow-hidden">
         <div className="flex animate-marquee whitespace-nowrap">
-          {Array(4).fill(["Multi-Drop Delivery","Last-Mile Logistics","Same-Day Courier","Next-Day Express","Flexible Solutions","98% On-Time","GPS Tracked","Fully Insured","Nationwide UK","West Midlands Based","From £4.99","On Time. Every Time."]).flat().map((item, i) => (
+          {Array(2).fill(["Multi-Drop Delivery","Last-Mile Logistics","Same-Day Courier","Next-Day Express","Flexible Solutions","98% On-Time","GPS Tracked","Fully Insured","Nationwide UK","West Midlands Based","From £4.99","On Time. Every Time."]).flat().map((item, i) => (
             <span key={i} className={`mx-6 text-xs font-bold tracking-widest uppercase ${i % 2 === 0 ? "text-[#f7680b]" : "text-white/20"}`}>{item}</span>
           ))}
         </div>
@@ -59,9 +60,12 @@ export default function HomePage() {
           <p className="text-gray-600 leading-relaxed mb-4 text-base">
             Over a decade of experience has allowed us to build a reputation on three things: reliability, efficiency, and professionalism. Our team work tirelessly so your deliveries arrive on time — and your customers' experience reflects well on your brand.
           </p>
-          <p className="text-gray-500 italic border-l-4 border-[#f7680b] pl-5 mb-8 text-sm leading-relaxed">
-            "Being a privately owned business means we make decisions quickly — building trusted partnerships and delivering logistical services tailored to each client's needs."
-          </p>
+          <div className="border-l-4 border-[#f7680b] pl-5 mb-8">
+            <p className="text-gray-500 italic text-sm leading-relaxed mb-2">
+              "Being a privately owned business means we make decisions quickly — building trusted partnerships and delivering logistical services tailored to each client's needs."
+            </p>
+            <p className="text-gray-400 text-xs font-semibold not-italic">— The Seehra Transport Team</p>
+          </div>
           <div className="mb-10">
             <Link href="/about" className="inline-block border border-gray-200 text-gray-700 px-8 py-4 rounded-xl font-bold hover:border-[#f7680b] hover:text-[#f7680b] transition-colors">
               Our Story →

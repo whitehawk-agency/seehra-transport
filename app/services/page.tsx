@@ -63,7 +63,7 @@ export default function ServicesPage() {
         </section>
       ))}
 
-      <section className="py-14 sm:py-20 px-4 sm:px-6 bg-white">
+      <section id="pricing" className="py-14 sm:py-20 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3 text-center">Transparent Pricing</p>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-center mb-3">Simple, Fair Rates</h2>

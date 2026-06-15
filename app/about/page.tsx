@@ -32,7 +32,10 @@ export default function AboutPage() {
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight mb-5">Invisible every day,<br />but essential to everyone</h2>
             <p className="text-gray-600 leading-relaxed mb-4">Seehra Transport is a leading logistics and delivery company specialising in multi-drop and last-mile delivery services across the UK. With over a decade of experience, we've built our reputation on reliability, efficiency, and exceptional customer service.</p>
             <p className="text-gray-600 leading-relaxed mb-4">Our team of professional drivers and logistics experts work tirelessly to ensure your deliveries reach their destination on time, every time. In today's fast-paced business environment, timely delivery isn't just a service — it's a necessity.</p>
-            <p className="text-gray-500 italic border-l-4 border-[#f7680b] pl-5 mb-7 text-sm leading-relaxed">"Being a privately owned business means we make decisions quickly — building trusted partnerships and delivering logistical services tailored to each client's unique needs."</p>
+            <div className="border-l-4 border-[#f7680b] pl-5 mb-7">
+              <p className="text-gray-500 italic text-sm leading-relaxed mb-2">"Being a privately owned business means we make decisions quickly — building trusted partnerships and delivering logistical services tailored to each client's unique needs."</p>
+              <p className="text-gray-400 text-xs font-semibold not-italic">— The Seehra Transport Team</p>
+            </div>
             <Link href="/contact" className="inline-block bg-[#f7680b] text-white px-8 py-4 rounded-xl font-bold hover:bg-[#e55a00] transition-colors">Get in Touch Today →</Link>
           </div>
           <div className="rounded-2xl overflow-hidden">
@@ -69,7 +72,7 @@ export default function AboutPage() {
             <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3">Why Choose Us</p>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight mb-5">Proven track record.<br />Modern fleet. Real support.</h2>
             {[
-              ["Proven Track Record","Over 10 years and 50,000+ completed deliveries. Our clients trust us because we've consistently delivered."],
+              ["Proven Track Record","Over 10 years delivering 15,000+ parcels every week. Our clients trust us because we've consistently delivered."],
               ["Modern Fleet","100+ well-maintained vehicles ensures we can handle any delivery requirement, large or small."],
               ["Real-Time Tracking","Know exactly where your deliveries are at all times. Full transparency from collection to delivery."],
               ["Dedicated Support","Our team is always available to answer questions, provide updates, and resolve any issues quickly."],

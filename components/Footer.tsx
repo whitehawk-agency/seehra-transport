@@ -1,12 +1,7 @@
-"use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 
 export default function Footer() {
-  const pathname = usePathname();
-  if (pathname.startsWith("/coming-soon")) return null;
-
   return (
     <footer className="bg-[#0a0a0a] text-white">
       <div className="overflow-hidden border-b border-white/10 py-5">
@@ -17,7 +12,7 @@ export default function Footer() {
             { text: "Last-Mile Logistics", accent: true },
             { text: "Fully Insured", accent: false },
             { text: "GPS Tracked", accent: true },
-            { text: "15+ Years Experience", accent: false },
+            { text: "10+ Years Experience", accent: false },
             { text: "On Time. Every Time.", accent: true },
             { text: "UK Nationwide", accent: false },
             { text: "West Midlands Based", accent: true },
@@ -120,7 +115,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-xs text-white/25">
-            © Seehra Transport Limited, 2025. All rights reserved. Registered in England & Wales. Company No. 09462678.
+            © Seehra Transport Limited, {new Date().getFullYear()}. All rights reserved. Registered in England & Wales. Company No. 09462678.
           </p>
           <div className="flex gap-5">
             <Link href="/privacy" className="text-xs text-white/25 hover:text-[#f7680b] transition-colors">Privacy Policy</Link>
