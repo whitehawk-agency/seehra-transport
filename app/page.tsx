@@ -19,8 +19,8 @@ export default function HomePage() {
 <div className="absolute inset-0" style={{ background: "linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 55%,#2a1208 100%)" }} />
         <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "linear-gradient(rgba(247,104,11,1) 1px,transparent 1px),linear-gradient(90deg,rgba(247,104,11,1) 1px,transparent 1px)", backgroundSize: "48px 48px" }} />
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 60% at 50% 40%, rgba(230,43,30,0.10) 0%, transparent 70%)" }} />
-        <div className="relative z-10 w-full max-w-3xl mx-auto px-4 sm:px-6 py-16">
-          <h1 className="font-extrabold text-white mb-5 tracking-tight text-center w-full" style={{ fontSize:"clamp(2rem, 5vw, 4.5rem)", lineHeight:"1.1" }}>
+        <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 py-16">
+          <h1 className="font-extrabold text-white mb-5 tracking-tight text-center w-full whitespace-nowrap" style={{ fontSize:"clamp(1.9rem, 4.5vw, 4.3rem)", lineHeight:"1.1" }}>
             Your Freight Secure<br />
             <span className="text-transparent bg-clip-text" style={{ backgroundImage:"linear-gradient(135deg,#e62b1e,#f7a50b)" }}>In Our Transit</span>
           </h1>

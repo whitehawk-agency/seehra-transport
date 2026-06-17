@@ -42,54 +42,34 @@ export default function RecruitmentPortalPage() {
       {/* Hero banner */}
       <div style={{ background: "linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 100%)" }} className="py-14 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3">Seehra Transport Careers</p>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-4">
-                Build your career<br />
-                <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(135deg,#e62b1e,#f7a50b)" }}>
-                  in logistics
-                </span>
-              </h1>
-              <p className="text-white/60 leading-relaxed mb-6 text-sm sm:text-base">
-                Join one of the UK's fastest-growing logistics companies. We're building a team of professionals who take pride in keeping Britain moving — on time, every time.
-              </p>
-              {/* Search bar in hero */}
-              <div className="bg-white rounded-xl flex gap-2 p-1.5 mb-5 max-w-lg">
-                <input
-                  type="text"
-                  placeholder="Search jobs or location..."
-                  className="flex-1 px-4 py-2 text-sm text-gray-900 focus:outline-none bg-transparent"
-                  value={search}
-                  onChange={e => setSearch(e.target.value)}
-                />
-                <button className="bg-[#f7680b] text-white px-5 py-2 rounded-lg font-bold text-sm hover:bg-[#e55a00] transition-colors whitespace-nowrap">
-                  Search
-                </button>
-              </div>
-              <div className="flex flex-wrap gap-3">
-                <a href="#jobs" className="bg-white text-gray-900 px-6 py-3 rounded-full font-bold text-sm hover:bg-gray-100 transition-colors">
-                  View Open Roles
-                </a>
-                <Link href="/about" className="border border-white/20 text-white px-6 py-3 rounded-full font-bold text-sm hover:border-white/50 transition-colors">
-                  About Us
-                </Link>
-              </div>
+          <div className="max-w-2xl">
+            <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3">Seehra Transport Careers</p>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-6">
+              Build your career<br />
+              <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(135deg,#e62b1e,#f7a50b)" }}>
+                in logistics
+              </span>
+            </h1>
+            {/* Search bar in hero */}
+            <div className="bg-white rounded-xl flex gap-2 p-1.5 mb-5 max-w-lg">
+              <input
+                type="text"
+                placeholder="Search jobs or location..."
+                className="flex-1 px-4 py-2 text-sm text-gray-900 focus:outline-none bg-transparent"
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+              />
+              <button className="bg-[#f7680b] text-white px-5 py-2 rounded-lg font-bold text-sm hover:bg-[#e55a00] transition-colors whitespace-nowrap">
+                Search
+              </button>
             </div>
-            {/* Stats */}
-            <div className="grid grid-cols-2 gap-3">
-              {[
-                ["15K+", "Parcels delivered weekly"],
-                ["98%", "On-time delivery rate"],
-                ["100+", "Vehicles in our fleet"],
-                ["10+", "Years of operations"],
-              ].map(([n, l]) => (
-                <div key={l} className="bg-white/5 border border-white/10 rounded-2xl p-5">
-                  <div className="text-2xl font-extrabold text-transparent bg-clip-text mb-1"
-                    style={{ backgroundImage: "linear-gradient(135deg,#e62b1e,#f7a50b)" }}>{n}</div>
-                  <div className="text-white/50 text-xs leading-snug">{l}</div>
-                </div>
-              ))}
+            <div className="flex flex-wrap gap-3">
+              <a href="#jobs" className="bg-white text-gray-900 px-6 py-3 rounded-full font-bold text-sm hover:bg-gray-100 transition-colors">
+                View Open Roles
+              </a>
+              <Link href="/about" className="border border-white/20 text-white px-6 py-3 rounded-full font-bold text-sm hover:border-white/50 transition-colors">
+                About Us
+              </Link>
             </div>
           </div>
         </div>
