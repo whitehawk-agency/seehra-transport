@@ -19,7 +19,8 @@ export default function ContactPage() {
     <>
       {/* Hero */}
       <section className="relative h-[45vh] min-h-[320px] flex items-end overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage:"url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1920&q=80')" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 60%,#2a1208 100%)" }} />
+        <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "linear-gradient(rgba(247,104,11,1) 1px,transparent 1px),linear-gradient(90deg,rgba(247,104,11,1) 1px,transparent 1px)", backgroundSize: "48px 48px" }} />
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 pb-14 w-full">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-2">Get In Touch</p>
@@ -48,7 +49,10 @@ export default function ContactPage() {
               </div>
             ))}
             <div className="mt-6 rounded-2xl overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=800&q=80" alt="Warehouse" className="w-full h-44 object-cover" />
+              <div className="w-full h-44 flex items-center justify-center relative overflow-hidden" style={{ background: "linear-gradient(135deg,#e62b1e,#f7680b)" }}>
+                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,1) 1px,transparent 1px)", backgroundSize: "32px 32px" }} />
+                <p className="relative z-10 text-white font-extrabold text-lg">On Time. Every Time.</p>
+              </div>
             </div>
           </div>
 

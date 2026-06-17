@@ -32,8 +32,9 @@ export default function RecruitmentPage() {
     <>
       {/* Hero */}
       <section className="relative h-[50vh] min-h-[360px] flex items-end overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage:"url('https://images.unsplash.com/photo-1471899236350-e3016bf1e69e?auto=format&fit=crop&w=1920&q=80')" }} />
-        <div className="absolute inset-0 bg-black/60" />
+<div className="absolute inset-0" style={{ background: "linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 60%,#2a1208 100%)" }} />
+        <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "linear-gradient(rgba(247,104,11,1) 1px,transparent 1px),linear-gradient(90deg,rgba(247,104,11,1) 1px,transparent 1px)", backgroundSize: "48px 48px" }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 60% at 30% 50%, rgba(230,43,30,0.12) 0%, transparent 70%)" }} />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pb-12 w-full">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-2">Join Our Team</p>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">

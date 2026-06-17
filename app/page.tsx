@@ -16,8 +16,9 @@ export default function HomePage() {
       {/*  HERO  */}
       <section className="relative min-h-[88vh] flex items-center justify-center overflow-hidden text-center">
         {/* Hero background — swap the URL below for your own image when ready */}
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1920&q=80')" }} />
-        <div className="absolute inset-0 bg-black/70" />
+<div className="absolute inset-0" style={{ background: "linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 55%,#2a1208 100%)" }} />
+        <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "linear-gradient(rgba(247,104,11,1) 1px,transparent 1px),linear-gradient(90deg,rgba(247,104,11,1) 1px,transparent 1px)", backgroundSize: "48px 48px" }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 60% at 50% 40%, rgba(230,43,30,0.10) 0%, transparent 70%)" }} />
         <div className="relative z-10 w-full max-w-3xl mx-auto px-4 sm:px-6 py-16">
           <h1 className="font-extrabold text-white mb-5 tracking-tight text-center w-full" style={{ fontSize:"clamp(2rem, 5vw, 4.5rem)", lineHeight:"1.1" }}>
             Your Freight Secure<br />

@@ -16,7 +16,8 @@ export default function AboutPage() {
     <>
       {/* Hero */}
       <section className="relative h-[55vh] min-h-[380px] flex items-end overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage:"url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1920&q=80')" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 60%,#2a1208 100%)" }} />
+        <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "linear-gradient(rgba(247,104,11,1) 1px,transparent 1px),linear-gradient(90deg,rgba(247,104,11,1) 1px,transparent 1px)", backgroundSize: "48px 48px" }} />
         <div className="absolute inset-0 bg-black/55" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 pb-16 w-full">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-2">About Seehra Transport</p>
@@ -39,14 +40,26 @@ export default function AboutPage() {
             <Link href="/contact" className="inline-block bg-[#f7680b] text-white px-8 py-4 rounded-xl font-bold hover:bg-[#e55a00] transition-colors">Get in Touch Today →</Link>
           </div>
           <div className="rounded-2xl overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=800&q=80" alt="Delivery fleet" className="w-full h-[420px] object-cover" />
+<div className="w-full h-[420px] rounded-2xl flex flex-col items-center justify-center text-center p-8 relative overflow-hidden" style={{ background: "linear-gradient(135deg,#0a0a0a,#2a1208)" }}>
+              <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "linear-gradient(rgba(247,104,11,1) 1px,transparent 1px),linear-gradient(90deg,rgba(247,104,11,1) 1px,transparent 1px)", backgroundSize: "40px 40px" }} />
+              <div className="relative z-10">
+                <div className="text-5xl font-extrabold text-transparent bg-clip-text mb-2" style={{ backgroundImage: "linear-gradient(135deg,#e62b1e,#f7a50b)" }}>15,000+</div>
+                <p className="text-white/70 text-sm mb-6">parcels delivered every week</p>
+                <div className="grid grid-cols-2 gap-4 max-w-xs">
+                  <div><div className="text-2xl font-extrabold text-white">98%</div><div className="text-white/40 text-xs">On-time rate</div></div>
+                  <div><div className="text-2xl font-extrabold text-white">100+</div><div className="text-white/40 text-xs">Vehicles</div></div>
+                  <div><div className="text-2xl font-extrabold text-white">10+</div><div className="text-white/40 text-xs">Years</div></div>
+                  <div><div className="text-2xl font-extrabold text-white">UK</div><div className="text-white/40 text-xs">Nationwide</div></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Values — numbers + title + desc only, NO stats underneath */}
       <section className="relative py-14 sm:py-20 px-4 sm:px-6">
-        <div className="absolute inset-0 bg-cover bg-center opacity-5" style={{ backgroundImage:"url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1920&q=80')" }} />
+
         <div className="absolute inset-0 bg-gray-50/97" />
         <div className="relative z-10 max-w-7xl mx-auto">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3 text-center">Our Core Values</p>
@@ -67,7 +80,14 @@ export default function AboutPage() {
       {/* Why Choose Us */}
       <section className="py-14 sm:py-20 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
-          <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=800&q=80" alt="Warehouse logistics" className="rounded-2xl w-full h-80 object-cover" />
+<div className="w-full h-80 rounded-2xl flex items-center justify-center p-8 relative overflow-hidden" style={{ background: "linear-gradient(135deg,#e62b1e,#f7680b)" }}>
+            <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,1) 1px,transparent 1px)", backgroundSize: "40px 40px" }} />
+            <div className="relative z-10 text-center">
+              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" className="mx-auto mb-4"><path strokeLinecap="round" strokeLinejoin="round" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM20 17a2 2 0 11-4 0 2 2 0 014 0z"/><path strokeLinecap="round" strokeLinejoin="round" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 001 1h1m-8 0h4m4 0h1a1 1 0 001-1v-3.28a1 1 0 00-.684-.948l-2.36-.787a1 1 0 01-.578-.502l-1.736-3.473A1 1 0 0014.382 6H13"/></svg>
+              <p className="text-white font-extrabold text-xl mb-1">Reliable. Efficient.</p>
+              <p className="text-white/80 text-sm">Professional logistics you can count on</p>
+            </div>
+          </div>
           <div>
             <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3">Why Choose Us</p>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight mb-5">Proven track record.<br />Modern fleet. Real support.</h2>

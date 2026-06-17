@@ -4,17 +4,17 @@ export const metadata: Metadata = { title: "Our Services", description: "Multi-d
 
 const services = [
   { id:"multi-drop", icon:"", title:"Multi-Drop Delivery", subtitle:"Efficient multi-location delivery solutions",
-    img:"https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1920&q=80",
+    gradient:"linear-gradient(135deg,#0a0a0a,#2a1208)", stat:"50+", statLabel:"drops per route",
     desc:"Our multi-drop delivery service is designed for businesses that need to reach multiple locations efficiently. Whether you're delivering to 5 locations or 50, we optimise routes to ensure timely delivery at every stop.",
     includes:["Optimised route planning","Real-time tracking for all deliveries","Proof of delivery at each location","Flexible scheduling to match your business","Professional drivers trained in customer service","Same-day and next-day options available"],
     idealFor:["Retail chains and outlets","Wholesale distributors","Food and beverage suppliers","Construction material suppliers","Pharmaceutical companies"] },
   { id:"last-mile", icon:"", title:"Last-Mile Logistics", subtitle:"Direct delivery to your customers' doorsteps",
-    img:"https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=800&q=80",
+    gradient:"linear-gradient(135deg,#e62b1e,#f7680b)", stat:"98%", statLabel:"on-time delivery",
     desc:"Last-mile delivery is often the most critical part of the logistics chain. We specialise in getting your products from our depot or warehouse directly to your customers' doors — ensuring a positive delivery experience.",
     includes:["Direct delivery to residential and business addresses","Customisable delivery time windows","SMS and email delivery notifications","Photo proof of delivery","Signature capture options","Returns management"],
     idealFor:["E-commerce businesses","Online retailers","Subscription box services","Direct-to-consumer brands","Furniture and appliance retailers"] },
   { id:"flexible", icon:"", title:"Flexible Solutions", subtitle:"Custom delivery tailored to your needs",
-    img:"https://images.unsplash.com/photo-1609429019995-8c40f49535a5?auto=format&fit=crop&w=800&q=80",
+    gradient:"linear-gradient(135deg,#1a1a1a,#3a1a0a)", stat:"24/7", statLabel:"availability",
     desc:"Every business has unique logistics requirements. Our flexible solutions adapt to your specific needs — dedicated vehicles, scheduled collections, or specialised handling. From one-off urgent deliveries to long-term contracts.",
     includes:["Dedicated vehicle hire","Scheduled regular collections","Out-of-hours delivery options","Weekend and bank holiday deliveries","Fragile item handling","Two-person delivery teams"],
     idealFor:["Businesses with irregular needs","High-value or fragile goods","Out-of-hours requirements","Long-term contract clients","Businesses needing dedicated vehicles"] },
@@ -24,7 +24,8 @@ export default function ServicesPage() {
   return (
     <>
       <section className="relative h-[45vh] min-h-[300px] flex items-end overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage:"url('https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=800&q=80')" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 60%,#2a1208 100%)" }} />
+        <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "linear-gradient(rgba(247,104,11,1) 1px,transparent 1px),linear-gradient(90deg,rgba(247,104,11,1) 1px,transparent 1px)", backgroundSize: "48px 48px" }} />
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pb-10 sm:pb-16 w-full">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-2">Our Expertise</p>
@@ -43,7 +44,13 @@ export default function ServicesPage() {
               <Link href="/contact" className="inline-block bg-[#f7680b] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#e55a00] transition-colors text-sm">Get a Quote →</Link>
             </div>
             <div className={`grid gap-3 ${i % 2 !== 0 ? "lg:order-1" : ""}`}>
-              <img src={s.img} alt={s.title} className="rounded-2xl w-full h-44 sm:h-52 object-cover" />
+              <div className="rounded-2xl w-full h-44 sm:h-52 flex items-center justify-center relative overflow-hidden" style={{ background: s.gradient }}>
+                <div className="absolute inset-0 opacity-[0.07]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,1) 1px,transparent 1px)", backgroundSize: "32px 32px" }} />
+                <div className="relative z-10 text-center">
+                  <div className="text-4xl font-extrabold text-white mb-1">{s.stat}</div>
+                  <div className="text-white/60 text-xs uppercase tracking-widest">{s.statLabel}</div>
+                </div>
+              </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="bg-white border border-gray-100 rounded-2xl p-4 shadow-sm">
                   <h3 className="font-bold mb-3 text-xs uppercase tracking-widest text-gray-400">What's Included</h3>
@@ -90,7 +97,8 @@ export default function ServicesPage() {
       </section>
 
       <section className="relative py-14 sm:py-20 px-4 sm:px-6">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage:"url('https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=800&q=80')" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 60%,#2a1208 100%)" }} />
+        <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "linear-gradient(rgba(247,104,11,1) 1px,transparent 1px),linear-gradient(90deg,rgba(247,104,11,1) 1px,transparent 1px)", backgroundSize: "48px 48px" }} />
         <div className="absolute inset-0 bg-gray-900/90" />
         <div className="relative z-10 max-w-7xl mx-auto">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3 text-center">For Businesses</p>
