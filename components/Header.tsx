@@ -39,15 +39,18 @@ export default function Header() {
           <nav className="hidden lg:flex items-center gap-7">
             {navLinks.map(link => (
               <Link key={link.href} href={link.href}
-                className={`text-sm font-medium transition-colors ${pathname === link.href ? "text-[#f7680b]" : "text-gray-600 hover:text-gray-900"}`}>
+                className={`text-base font-medium transition-colors ${pathname === link.href ? "text-[#f7680b]" : "text-gray-600 hover:text-gray-900"}`}>
                 {link.label}
               </Link>
             ))}
           </nav>
 
           <Link href="/contact"
-            className="hidden lg:block bg-[#f7680b] text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-[#e55a00] transition-colors whitespace-nowrap">
-            Get in Touch Today
+            className="hidden lg:inline-flex items-center gap-2 bg-[#f7680b] text-white px-6 py-3 rounded-full text-base font-bold hover:bg-[#e55a00] transition-colors whitespace-nowrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+            </svg>
+            Talk to us
           </Link>
 
           <button className="lg:hidden p-2" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu">
@@ -62,12 +65,15 @@ export default function Header() {
             <nav className="flex flex-col px-6 py-4 gap-1">
               {navLinks.map(link => (
                 <Link key={link.href} href={link.href}
-                  className={`block py-2.5 text-sm font-medium ${pathname === link.href ? "text-[#f7680b]" : "text-gray-700"}`}>
+                  className={`block py-2.5 text-base font-medium ${pathname === link.href ? "text-[#f7680b]" : "text-gray-700"}`}>
                   {link.label}
                 </Link>
               ))}
-              <Link href="/contact" className="mt-3 bg-[#f7680b] text-white px-5 py-3 rounded-lg text-sm font-semibold text-center">
-                Get in Touch Today
+              <Link href="/contact" className="mt-3 bg-[#f7680b] text-white px-5 py-3 rounded-full text-base font-bold text-center inline-flex items-center justify-center gap-2">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                </svg>
+                Talk to us
               </Link>
             </nav>
           </div>

@@ -20,18 +20,18 @@ export default function HomePage() {
         <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "linear-gradient(rgba(247,104,11,1) 1px,transparent 1px),linear-gradient(90deg,rgba(247,104,11,1) 1px,transparent 1px)", backgroundSize: "48px 48px" }} />
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 60% at 50% 40%, rgba(230,43,30,0.10) 0%, transparent 70%)" }} />
         <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 py-16">
-          <h1 className="font-extrabold text-white mb-5 tracking-tight text-center w-full whitespace-nowrap" style={{ fontSize:"clamp(1.9rem, 4.5vw, 4.3rem)", lineHeight:"1.1" }}>
+          <h1 className="font-extrabold text-white mb-5 tracking-tight text-center w-full sm:whitespace-nowrap" style={{ fontSize:"clamp(2.3rem, 5.5vw, 5.5rem)", lineHeight:"1.05" }}>
             Your Freight Secure<br />
             <span className="text-transparent bg-clip-text" style={{ backgroundImage:"linear-gradient(135deg,#e62b1e,#f7a50b)" }}>In Our Transit</span>
           </h1>
-          <p className="text-white/75 text-base sm:text-lg leading-relaxed mb-8 max-w-xl mx-auto px-2">
+          <p className="text-white/75 text-lg sm:text-xl leading-relaxed mb-9 max-w-2xl mx-auto px-2">
             Multi-drop and last-mile logistics specialists serving businesses across the United Kingdom — on time, every time.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center px-4">
-            <Link href="/contact" className="bg-[#f7680b] hover:bg-[#e55a00] text-white px-8 py-4 rounded-xl font-bold text-base transition-all hover:shadow-lg hover:shadow-orange-500/30 w-full sm:w-auto text-center">
+            <Link href="/contact" className="bg-[#f7680b] hover:bg-[#e55a00] text-white px-9 py-4 rounded-full font-bold text-lg transition-all hover:shadow-lg hover:shadow-orange-500/30 w-full sm:w-auto text-center">
               Get a Quote →
             </Link>
-            <Link href="/services" className="border-2 border-white/50 hover:border-white text-white px-8 py-4 rounded-xl font-bold text-base transition-all hover:bg-white/10 w-full sm:w-auto text-center">
+            <Link href="/services" className="border-2 border-white/50 hover:border-white text-white px-9 py-4 rounded-full font-bold text-lg transition-all hover:bg-white/10 w-full sm:w-auto text-center">
               Our Services
             </Link>
           </div>
@@ -51,14 +51,14 @@ export default function HomePage() {
       <section className="py-16 sm:py-24 px-4 sm:px-6 bg-white" id="about">
         <div className="max-w-4xl mx-auto">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3 text-center">Who We Are</p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-5 text-center">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-5 text-center">
             Invisible every day,{" "}
             <span className="text-transparent bg-clip-text" style={{ backgroundImage:"linear-gradient(135deg,#e62b1e,#f7a50b)" }}>but essential to everyone</span>
           </h2>
-          <p className="text-gray-600 leading-relaxed mb-4 text-base">
+          <p className="text-gray-600 leading-relaxed mb-4 text-lg">
             Seehra Transport is a professional logistics and delivery company specialising in multi-drop and last-mile services across the UK. Based at Park Lane Industrial Estate in Oldbury, we deliver 15,000 individual parcels every week, Monday to Friday.
           </p>
-          <p className="text-gray-600 leading-relaxed mb-4 text-base">
+          <p className="text-gray-600 leading-relaxed mb-4 text-lg">
             Over a decade of experience has allowed us to build a reputation on three things: reliability, efficiency, and professionalism. Our team work tirelessly so your deliveries arrive on time — and your customers' experience reflects well on your brand.
           </p>
           <div className="border-l-4 border-[#f7680b] pl-5 mb-8">
@@ -80,7 +80,7 @@ export default function HomePage() {
       <section className="bg-gray-50 py-16 sm:py-24 px-4 sm:px-6" id="services">
         <div className="max-w-7xl mx-auto">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3 text-center">Our Expertise</p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-center mb-3">All roads lead to your door</h2>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-center mb-3">All roads lead to your door</h2>
           <p className="text-gray-500 text-sm leading-relaxed text-center max-w-xl mx-auto mb-10">
             Comprehensive logistics solutions covering every delivery requirement — from urgent same-day runs to complex multi-drop distribution.
           </p>
@@ -108,7 +108,7 @@ export default function HomePage() {
       <section className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3 text-center">Transparent Pricing</p>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-center mb-3">Simple, Fair Rates</h2>
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-center mb-3">Simple, Fair Rates</h2>
           <p className="text-gray-500 text-center mb-10 max-w-lg mx-auto text-sm">No hidden fees. No surprises. Volume discounts available for businesses.</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {[
@@ -136,7 +136,7 @@ export default function HomePage() {
       <section className="py-16 sm:py-20 px-4 sm:px-6" style={{ background:"linear-gradient(135deg,#e62b1e 0%,#f7680b 100%)" }}>
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6">
           <div className="text-center lg:text-left">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight mb-3">Drive with Seehra.</h2>
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-white leading-tight mb-3">Drive with Seehra.</h2>
             <p className="text-white/80 text-base sm:text-lg max-w-xl">Hiring self-employed delivery drivers for East & West Midlands routes. Weekly pay, training provided, fuel paid on top of your day rate.</p>
           </div>
           <Link href="/recruitment-portal" className="bg-white text-[#f7680b] px-8 py-4 rounded-xl font-bold text-base whitespace-nowrap hover:bg-orange-50 transition-colors shadow-xl w-full lg:w-auto text-center">View Careers →</Link>
