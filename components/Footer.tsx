@@ -4,27 +4,6 @@ import Logo from "./Logo";
 export default function Footer() {
   return (
     <footer className="bg-[#0a0a0a] text-white">
-      <div className="overflow-hidden border-b border-white/10 py-5">
-        <div className="flex animate-marquee whitespace-nowrap">
-          {Array(4).fill([
-            { text: "Multi-Drop Delivery", accent: true },
-            { text: "Same Day Courier", accent: false },
-            { text: "Last-Mile Logistics", accent: true },
-            { text: "Fully Insured", accent: false },
-            { text: "GPS Tracked", accent: true },
-            { text: "10+ Years Experience", accent: false },
-            { text: "On Time. Every Time.", accent: true },
-            { text: "UK Nationwide", accent: false },
-            { text: "West Midlands Based", accent: true },
-            { text: "From £4.99", accent: false },
-          ]).flat().map((item, i) => (
-            <span key={i} className={`mx-8 text-xs font-bold tracking-widest uppercase ${item.accent ? "text-[#f7680b]" : "text-white/30"}`}>
-              {item.text}
-            </span>
-          ))}
-        </div>
-      </div>
-
       <div className="max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>
           <div className="mb-6"><Logo variant="footer" /></div>

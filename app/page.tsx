@@ -38,15 +38,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/*  MARQUEE  */}
-      <div className="bg-[#0a0a0a] border-t border-white/5 py-4 overflow-hidden">
-        <div className="flex animate-marquee whitespace-nowrap">
-          {Array(2).fill(["Multi-Drop Delivery","Last-Mile Logistics","Same-Day Courier","Next-Day Express","Flexible Solutions","98% On-Time","GPS Tracked","Fully Insured","Nationwide UK","West Midlands Based","From £4.99","On Time. Every Time."]).flat().map((item, i) => (
-            <span key={i} className={`mx-6 text-xs font-bold tracking-widest uppercase ${i % 2 === 0 ? "text-[#f7680b]" : "text-white/20"}`}>{item}</span>
-          ))}
-        </div>
-      </div>
-
       {/*  OUR STORY  */}
       <section className="py-16 sm:py-24 px-4 sm:px-6 bg-white" id="about">
         <div className="max-w-4xl mx-auto">
@@ -61,12 +52,6 @@ export default function HomePage() {
           <p className="text-gray-600 leading-relaxed mb-4 text-lg">
             Over a decade of experience has allowed us to build a reputation on three things: reliability, efficiency, and professionalism. Our team work tirelessly so your deliveries arrive on time — and your customers' experience reflects well on your brand.
           </p>
-          <div className="border-l-4 border-[#f7680b] pl-5 mb-8">
-            <p className="text-gray-500 italic text-sm leading-relaxed mb-2">
-              "Being a privately owned business means we make decisions quickly — building trusted partnerships and delivering logistical services tailored to each client's needs."
-            </p>
-            <p className="text-gray-400 text-xs font-semibold not-italic">— The Seehra Transport Team</p>
-          </div>
           <div className="mb-10">
             <Link href="/about" className="inline-block border border-gray-200 text-gray-700 px-8 py-4 rounded-xl font-bold hover:border-[#f7680b] hover:text-[#f7680b] transition-colors">
               Our Story →
