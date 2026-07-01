@@ -38,25 +38,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/*  OUR STORY  */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-white" id="about">
+      {/*  QUOTE  */}
+      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-white" id="quote">
         <div className="max-w-4xl mx-auto">
-          <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3 text-center">Who We Are</p>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-5 text-center">
-            Invisible every day,{" "}
-            <span className="text-transparent bg-clip-text" style={{ backgroundImage:"linear-gradient(135deg,#e62b1e,#f7a50b)" }}>but essential to everyone</span>
-          </h2>
-          <p className="text-gray-600 leading-relaxed mb-4 text-lg">
-            Seehra Transport is a professional logistics and delivery company specialising in multi-drop and last-mile services across the UK. Based at Park Lane Industrial Estate in Oldbury, we deliver 15,000 individual parcels every week, Monday to Friday.
-          </p>
-          <p className="text-gray-600 leading-relaxed mb-4 text-lg">
-            Over a decade of experience has allowed us to build a reputation on three things: reliability, efficiency, and professionalism. Our team work tirelessly so your deliveries arrive on time — and your customers' experience reflects well on your brand.
-          </p>
-          <div className="mb-10">
-            <Link href="/about" className="inline-block border border-gray-200 text-gray-700 px-8 py-4 rounded-xl font-bold hover:border-[#f7680b] hover:text-[#f7680b] transition-colors">
-              Our Story →
-            </Link>
-          </div>
           <QuoteWidget />
         </div>
       </section>

@@ -40,20 +40,11 @@ export default function ContactPage() {
               { icon:"", label:"Head Office", value:"Unit 5 & 6 Park Lane Industrial Estate, Park Lane, Oldbury, West Midlands, B69 4JX" },
               { icon:"", label:"Hours", value:"Monday – Friday, 9:00 AM – 5:00 PM · Sat–Sun Closed" },
             ].map(d => (
-              <div key={d.label} className="flex items-start gap-4 mb-5">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center text-lg flex-shrink-0" style={{ background:"linear-gradient(135deg,#e62b1e,#f7680b)" }}>{d.icon}</div>
-                <div>
-                  <div className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-0.5">{d.label}</div>
-                  {d.href ? <a href={d.href} className="text-gray-900 font-medium text-sm hover:text-[#f7680b] transition-colors">{d.value}</a> : <p className="text-gray-700 text-sm">{d.value}</p>}
-                </div>
+              <div key={d.label} className="mb-5 border-l-2 border-[#f7680b] pl-4">
+                <div className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-0.5">{d.label}</div>
+                {d.href ? <a href={d.href} className="text-gray-900 font-medium text-sm hover:text-[#f7680b] transition-colors">{d.value}</a> : <p className="text-gray-700 text-sm">{d.value}</p>}
               </div>
             ))}
-            <div className="mt-6 rounded-2xl overflow-hidden">
-              <div className="w-full h-44 flex items-center justify-center relative overflow-hidden" style={{ background: "linear-gradient(135deg,#e62b1e,#f7680b)" }}>
-                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,1) 1px,transparent 1px)", backgroundSize: "32px 32px" }} />
-                <p className="relative z-10 text-white font-extrabold text-lg">On Time. Every Time.</p>
-              </div>
-            </div>
           </div>
 
           <div className="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm">
