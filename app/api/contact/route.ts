@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { esc, isValidEmail } from "@/lib/sanitize";
 
 export async function POST(req: NextRequest) {
   try {
@@ -7,6 +8,9 @@ export async function POST(req: NextRequest) {
 
     if (!firstName || !email || !message) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+    }
+    if (!isValidEmail(email)) {
+      return NextResponse.json({ error: "Please provide a valid email address" }, { status: 400 });
     }
 
     // Send via Resend (set RESEND_API_KEY in Vercel env vars)
@@ -19,15 +23,15 @@ export async function POST(req: NextRequest) {
           from: "Seehra Transport <noreply@seehratransport.com>",
           to: ["info@seehratransport.com"],
           reply_to: email,
-          subject: `New Contact Enquiry — ${enquiry || "General"} from ${firstName} ${lastName}`,
+          subject: `New Contact Enquiry — ${esc(enquiry || "General")} from ${esc(firstName)} ${esc(lastName)}`,
           html: `
             <h2>New Contact Form Submission</h2>
             <table style="border-collapse:collapse;width:100%">
-              <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold">Name</td><td style="padding:8px;border:1px solid #eee">${firstName} ${lastName}</td></tr>
-              <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold">Email</td><td style="padding:8px;border:1px solid #eee">${email}</td></tr>
-              <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold">Phone</td><td style="padding:8px;border:1px solid #eee">${phone || "Not provided"}</td></tr>
-              <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold">Enquiry Type</td><td style="padding:8px;border:1px solid #eee">${enquiry || "Not specified"}</td></tr>
-              <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold">Message</td><td style="padding:8px;border:1px solid #eee">${message}</td></tr>
+              <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold">Name</td><td style="padding:8px;border:1px solid #eee">${esc(firstName)} ${esc(lastName)}</td></tr>
+              <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold">Email</td><td style="padding:8px;border:1px solid #eee">${esc(email)}</td></tr>
+              <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold">Phone</td><td style="padding:8px;border:1px solid #eee">${esc(phone || "Not provided")}</td></tr>
+              <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold">Enquiry Type</td><td style="padding:8px;border:1px solid #eee">${esc(enquiry || "Not specified")}</td></tr>
+              <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold">Message</td><td style="padding:8px;border:1px solid #eee">${esc(message)}</td></tr>
             </table>
           `,
         }),

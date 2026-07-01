@@ -62,17 +62,19 @@ export default function Header() {
         </div>
 
         {mobileOpen && (
-          <div className="lg:hidden border-t border-gray-100 bg-white">
-            <nav className="flex flex-col px-6 py-4 gap-1">
+          <div className="lg:hidden border-t border-gray-100 bg-white shadow-lg">
+            <nav className="flex flex-col px-5 py-3">
               {navLinks.map(link => (
                 <Link key={link.href} href={link.href}
-                  className={`block py-2.5 text-base font-medium ${pathname === link.href ? "text-[#f7680b]" : "text-gray-700"}`}>
+                  onClick={() => setMobileOpen(false)}
+                  className={`block py-3.5 px-2 text-base font-semibold border-b border-gray-50 ${pathname === link.href ? "text-[#f7680b]" : "text-gray-800"}`}>
                   {link.label}
                 </Link>
               ))}
               <Link href="/contact"
+                onClick={() => setMobileOpen(false)}
                 style={{ fontFamily: '"Geovano Sans", ui-sans-serif, system-ui, sans-serif' }}
-                className="mt-3 bg-[#f7680b] text-white px-5 py-3 rounded-full text-base font-bold tracking-wide text-center inline-flex items-center justify-center gap-2.5">
+                className="mt-4 mb-1 bg-[#f7680b] text-white px-5 py-3.5 rounded-full text-base font-bold tracking-wide text-center inline-flex items-center justify-center gap-2.5">
                 <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
                 </svg>

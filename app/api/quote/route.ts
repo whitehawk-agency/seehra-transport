@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { esc, isValidEmail } from "@/lib/sanitize";
 
 export async function POST(req: NextRequest) {
   try {
@@ -7,6 +8,9 @@ export async function POST(req: NextRequest) {
 
     if (!name || !email || !collection || !delivery || !service) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+    }
+    if (!isValidEmail(email)) {
+      return NextResponse.json({ error: "Please provide a valid email address" }, { status: 400 });
     }
 
     const resendKey = process.env.RESEND_API_KEY;
@@ -18,18 +22,18 @@ export async function POST(req: NextRequest) {
           from: "Seehra Transport <noreply@seehratransport.com>",
           to: ["info@seehratransport.com"],
           reply_to: email,
-          subject: `New Quote Request — ${service} from ${collection} to ${delivery}`,
+          subject: `New Quote Request — ${esc(service)} from ${esc(collection)} to ${esc(delivery)}`,
           html: `
             <h2>New Quote Request</h2>
             <table style="border-collapse:collapse;width:100%">
-              <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold">Name</td><td style="padding:8px;border:1px solid #eee">${name}</td></tr>
-              <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold">Email</td><td style="padding:8px;border:1px solid #eee">${email}</td></tr>
-              <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold">Phone</td><td style="padding:8px;border:1px solid #eee">${phone || "Not provided"}</td></tr>
-              <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold">Collection Postcode</td><td style="padding:8px;border:1px solid #eee">${collection}</td></tr>
-              <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold">Delivery Postcode</td><td style="padding:8px;border:1px solid #eee">${delivery}</td></tr>
-              <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold">Service</td><td style="padding:8px;border:1px solid #eee">${service}</td></tr>
-              <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold">Weight</td><td style="padding:8px;border:1px solid #eee">${weight || "Not specified"}</td></tr>
-              <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold">Details</td><td style="padding:8px;border:1px solid #eee">${details || "None"}</td></tr>
+              <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold">Name</td><td style="padding:8px;border:1px solid #eee">${esc(name)}</td></tr>
+              <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold">Email</td><td style="padding:8px;border:1px solid #eee">${esc(email)}</td></tr>
+              <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold">Phone</td><td style="padding:8px;border:1px solid #eee">${esc(phone || "Not provided")}</td></tr>
+              <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold">Collection Postcode</td><td style="padding:8px;border:1px solid #eee">${esc(collection)}</td></tr>
+              <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold">Delivery Postcode</td><td style="padding:8px;border:1px solid #eee">${esc(delivery)}</td></tr>
+              <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold">Service</td><td style="padding:8px;border:1px solid #eee">${esc(service)}</td></tr>
+              <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold">Weight</td><td style="padding:8px;border:1px solid #eee">${esc(weight || "Not specified")}</td></tr>
+              <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold">Details</td><td style="padding:8px;border:1px solid #eee">${esc(details || "None")}</td></tr>
             </table>
           `,
         }),

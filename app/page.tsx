@@ -14,16 +14,16 @@ export default function HomePage() {
   return (
     <>
       {/*  HERO  */}
-      <section className="relative min-h-[88vh] flex items-center justify-center overflow-hidden text-center">
+      <section className="relative min-h-[78vh] sm:min-h-[88vh] flex items-center justify-center overflow-hidden text-center">
         {/* Hero background photo with dark overlay for readability */}
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/delivery-handoff.jpg')" }} />
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(10,10,10,0.62) 0%, rgba(20,20,20,0.48) 50%, rgba(42,18,8,0.45) 100%)" }} />
         <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 py-16">
-          <h1 className="font-extrabold text-white mb-5 tracking-tight text-center w-full sm:whitespace-nowrap" style={{ fontSize:"clamp(2.3rem, 5.5vw, 5.5rem)", lineHeight:"1.05" }}>
+          <h1 className="font-extrabold text-white mb-5 tracking-tight text-center w-full sm:whitespace-nowrap" style={{ fontSize:"clamp(2rem, 6vw, 5.5rem)", lineHeight:"1.08" }}>
             Your Freight Secure<br />
             <span className="text-transparent bg-clip-text" style={{ backgroundImage:"linear-gradient(135deg,#e62b1e,#f7a50b)" }}>In Our Transit</span>
           </h1>
-          <p className="text-white/75 text-lg sm:text-xl leading-relaxed mb-9 max-w-2xl mx-auto px-2">
+          <p className="text-white/80 text-base sm:text-xl leading-relaxed mb-8 sm:mb-9 max-w-2xl mx-auto px-2">
             Multi-drop and last-mile logistics specialists serving businesses across the United Kingdom — on time, every time.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center px-4">

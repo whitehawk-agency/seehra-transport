@@ -1,6 +1,26 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Application } from "@/lib/jobs";
 import { readFileSync, writeFileSync, existsSync } from "fs";
+import crypto from "crypto";
+
+// The opaque admin token = SHA-256(secret + adminEmail), matching /api/admin-auth.
+// This means the raw admin password/key is never sent to or stored in the browser.
+function isAuthorised(req: NextRequest): boolean {
+  const adminKey = process.env.ADMIN_KEY;
+  const adminPassword = process.env.ADMIN_PASSWORD;
+  const adminEmail = process.env.ADMIN_EMAIL || "admin@seehratransport.com";
+  // If nothing is configured, deny by default (fail closed)
+  if (!adminKey && !adminPassword) return false;
+  const secret = adminPassword || adminKey || "";
+  const expected = crypto.createHash("sha256").update(secret + adminEmail).digest("hex");
+  const provided = req.headers.get("x-admin-key") || "";
+  if (provided.length !== expected.length) return false;
+  try {
+    return crypto.timingSafeEqual(Buffer.from(provided), Buffer.from(expected));
+  } catch {
+    return false;
+  }
+}
 
 const DB_PATH = "/tmp/seehra-applications.json";
 function getApps(): Application[] {
@@ -10,8 +30,7 @@ function getApps(): Application[] {
 function saveApps(apps: Application[]) { writeFileSync(DB_PATH, JSON.stringify(apps)); }
 
 export async function GET(req: NextRequest) {
-  const adminKey = req.headers.get("x-admin-key");
-  if (adminKey !== process.env.ADMIN_KEY && process.env.ADMIN_KEY) {
+  if (!isAuthorised(req)) {
     return NextResponse.json({ error: "Unauthorised" }, { status: 401 });
   }
   return NextResponse.json(getApps());
@@ -123,8 +142,7 @@ export async function POST(req: NextRequest) {
 }
 
 export async function PATCH(req: NextRequest) {
-  const adminKey = req.headers.get("x-admin-key");
-  if (adminKey !== process.env.ADMIN_KEY && process.env.ADMIN_KEY) {
+  if (!isAuthorised(req)) {
     return NextResponse.json({ error: "Unauthorised" }, { status: 401 });
   }
   const body = await req.json();
