@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Logo from "./Logo";
+import CookieSettingsLink from "./CookieSettingsLink";
 
 export default function Footer() {
   return (
@@ -69,6 +70,7 @@ export default function Footer() {
             <Link href="/privacy" className="text-xs text-white/25 hover:text-[#f7680b] transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="text-xs text-white/25 hover:text-[#f7680b] transition-colors">Terms of Service</Link>
             <Link href="/cookies" className="text-xs text-white/25 hover:text-[#f7680b] transition-colors">Cookie Policy</Link>
+            <CookieSettingsLink />
           </div>
         </div>
       </div>

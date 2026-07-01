@@ -11,13 +11,20 @@ export default function CookieBanner() {
       const consent = localStorage.getItem("seehra-cookie-consent");
       if (!consent) {
         setShow(true);
-        // trigger entrance animation on next frame
         requestAnimationFrame(() => setVisible(true));
       }
     } catch {
       setShow(true);
       requestAnimationFrame(() => setVisible(true));
     }
+
+    // Allow the footer "Cookie Settings" link to re-open the popup
+    function reopen() {
+      setShow(true);
+      requestAnimationFrame(() => setVisible(true));
+    }
+    window.addEventListener("seehra:open-cookies", reopen);
+    return () => window.removeEventListener("seehra:open-cookies", reopen);
   }, []);
 
   function setConsent(value: "accepted" | "rejected") {
