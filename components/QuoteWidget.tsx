@@ -23,7 +23,7 @@ export default function QuoteWidget() {
   const inp = "w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-900 bg-white focus:outline-none focus:border-[#f7680b] transition-colors placeholder-gray-400";
 
   return (
-    <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
+    <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-xl">
       {/* Tabs — no "Get a Quote" label, just Quote Form / Track Order */}
       <div className="flex gap-2 mb-6">
         {(["quote","track"] as Tab[]).map(t => (

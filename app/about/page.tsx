@@ -26,13 +26,11 @@ export default function AboutPage() {
 
       {/* Who We Are */}
       <section className="py-14 sm:py-20 px-4 sm:px-6 bg-white">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto text-center">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3">Who We Are</p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-6">Invisible every day,<br />but essential to everyone</h2>
-          <p className="text-gray-600 leading-relaxed mb-4 text-lg">Seehra Transport is a leading logistics and delivery company specialising in multi-drop and last-mile delivery services across the United Kingdom. Based at Park Lane Industrial Estate in Oldbury, West Midlands, we have spent over a decade building our reputation on three simple things: reliability, efficiency, and genuine customer care.</p>
-          <p className="text-gray-600 leading-relaxed mb-4 text-lg">Every week, our team handles thousands of individual parcels across the region, Monday to Friday. Behind every delivery is a professional driver, a carefully planned route, and a support team working to make sure your goods arrive exactly when they should. We know that when you hand something to us, you're trusting us with your reputation as well as your parcel — and that's a responsibility we take seriously on every single job.</p>
-          <p className="text-gray-600 leading-relaxed mb-4 text-lg">In today's fast-paced business environment, timely delivery isn't just a service — it's a necessity. A late or mishandled delivery reflects on your brand, not just ours. That's why we've invested in a modern fleet, experienced people, and the systems needed to keep everything running smoothly, so your customers get the seamless experience they expect and you get complete peace of mind.</p>
-          <p className="text-gray-600 leading-relaxed mb-7 text-lg">As a privately owned business, we're able to make decisions quickly and tailor our services around what each client actually needs — rather than forcing everyone into the same rigid process. It's an approach that has helped us build long-term partnerships with businesses who value a logistics partner that genuinely cares about getting it right.</p>
+          <p className="text-gray-600 leading-relaxed mb-4 text-lg">Seehra Transport is a leading logistics and delivery company specialising in multi-drop and last-mile delivery services across the United Kingdom. With over a decade of experience from our base in Oldbury, West Midlands, we've built our reputation on three simple things: reliability, efficiency, and genuine customer care.</p>
+          <p className="text-gray-600 leading-relaxed mb-8 text-lg">Every week our team handles thousands of parcels, and behind each one is a professional driver and a support team making sure your goods arrive exactly when they should. When you hand something to us, you're trusting us with your reputation as well as your parcel — and that's a responsibility we take seriously on every single job.</p>
           <Link href="/contact" className="inline-block bg-[#f7680b] text-white px-8 py-4 rounded-full font-bold hover:bg-[#e55a00] transition-colors">Get in Touch Today →</Link>
         </div>
       </section>

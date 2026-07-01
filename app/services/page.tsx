@@ -9,7 +9,7 @@ const services = [
     includes:["Optimised route planning","Real-time tracking for all deliveries","Proof of delivery at each location","Flexible scheduling to match your business","Professional drivers trained in customer service","Same-day and next-day options available"],
     idealFor:["Retail chains and outlets","Wholesale distributors","Food and beverage suppliers","Construction material suppliers","Pharmaceutical companies"] },
   { id:"last-mile", icon:"", title:"Last-Mile Logistics", subtitle:"Direct delivery to your customers' doorsteps",
-    img:"/drone-delivery.jpg",
+    img:"/drone-delivery.jpg", imgPos:"center 30%",
     desc:"Last-mile delivery is often the most critical part of the logistics chain. We specialise in getting your products from our depot or warehouse directly to your customers' doors — ensuring a positive delivery experience.",
     includes:["Direct delivery to residential and business addresses","Customisable delivery time windows","SMS and email delivery notifications","Photo proof of delivery","Signature capture options","Returns management"],
     idealFor:["E-commerce businesses","Online retailers","Subscription box services","Direct-to-consumer brands","Furniture and appliance retailers"] },
@@ -42,23 +42,9 @@ export default function ServicesPage() {
               <p className="text-gray-600 leading-relaxed mb-6 text-sm sm:text-base">{s.desc}</p>
               <Link href="/contact" className="inline-block bg-[#f7680b] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#e55a00] transition-colors text-sm">Get a Quote →</Link>
             </div>
-            <div className={`grid gap-3 ${i % 2 !== 0 ? "lg:order-1" : ""}`}>
-              <div className="rounded-2xl w-full h-44 sm:h-52 overflow-hidden">
-                <img src={s.img} alt={s.title} className="w-full h-full object-cover" />
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div className="bg-white border border-gray-100 rounded-2xl p-4 shadow-sm">
-                  <h3 className="font-bold mb-3 text-xs uppercase tracking-widest text-gray-400">What's Included</h3>
-                  <ul className="flex flex-col gap-1.5">
-                    {s.includes.map(item => <li key={item} className="flex items-start gap-2 text-xs text-gray-700"><span className="text-[#f7680b] font-bold flex-shrink-0"></span>{item}</li>)}
-                  </ul>
-                </div>
-                <div className="bg-[#0a0a0a] rounded-2xl p-4">
-                  <h3 className="font-bold mb-3 text-xs uppercase tracking-widest text-white/40">Ideal For</h3>
-                  <ul className="flex flex-col gap-1.5">
-                    {s.idealFor.map(item => <li key={item} className="flex items-start gap-2 text-xs text-white/60"><span className="text-[#f7680b] flex-shrink-0">→</span>{item}</li>)}
-                  </ul>
-                </div>
+            <div className={i % 2 !== 0 ? "lg:order-1" : ""}>
+              <div className="rounded-2xl w-full h-64 sm:h-80 lg:h-96 overflow-hidden">
+                <img src={s.img} alt={s.title} className="w-full h-full object-cover" style={{ objectPosition: s.imgPos || "center" }} />
               </div>
             </div>
           </div>
@@ -92,9 +78,8 @@ export default function ServicesPage() {
       </section>
 
       <section className="relative py-14 sm:py-20 px-4 sm:px-6">
-        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 60%,#2a1208 100%)" }} />
-        <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "linear-gradient(rgba(247,104,11,1) 1px,transparent 1px),linear-gradient(90deg,rgba(247,104,11,1) 1px,transparent 1px)", backgroundSize: "48px 48px" }} />
-        <div className="absolute inset-0 bg-gray-900/90" />
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/warehouse.jpg')" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(10,10,10,0.88) 0%, rgba(20,20,20,0.82) 60%, rgba(42,18,8,0.82) 100%)" }} />
         <div className="relative z-10 max-w-7xl mx-auto">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3 text-center">For Businesses</p>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white text-center mb-3">Enterprise Solutions</h2>

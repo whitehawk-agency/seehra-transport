@@ -38,7 +38,7 @@ export default function HomePage() {
       </section>
 
       {/*  QUOTE  */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-white" id="quote">
+      <section className="py-16 sm:py-24 px-4 sm:px-6" id="quote" style={{ background:"linear-gradient(135deg,#e62b1e 0%,#f7680b 100%)" }}>
         <div className="max-w-4xl mx-auto">
           <QuoteWidget />
         </div>
