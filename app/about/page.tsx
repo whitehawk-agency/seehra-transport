@@ -16,9 +16,8 @@ export default function AboutPage() {
     <>
       {/* Hero */}
       <section className="relative h-[55vh] min-h-[380px] flex items-end overflow-hidden">
-        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 60%,#2a1208 100%)" }} />
-        <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "linear-gradient(rgba(247,104,11,1) 1px,transparent 1px),linear-gradient(90deg,rgba(247,104,11,1) 1px,transparent 1px)", backgroundSize: "48px 48px" }} />
-        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/handshake.jpg')" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(10,10,10,0.78) 0%, rgba(20,20,20,0.6) 55%, rgba(42,18,8,0.55) 100%)" }} />
         <div className="relative z-10 max-w-7xl mx-auto px-6 pb-16 w-full">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-2">About Seehra Transport</p>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">Your trusted<br /><span className="text-transparent bg-clip-text" style={{ backgroundImage:"linear-gradient(135deg,#e62b1e,#f7a50b)" }}>logistics partner</span></h1>
@@ -30,9 +29,6 @@ export default function AboutPage() {
         <div className="max-w-3xl mx-auto">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3">Who We Are</p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-6">Invisible every day,<br />but essential to everyone</h2>
-          <div className="rounded-2xl overflow-hidden mb-7">
-            <img src="/delivery-handoff.jpg" alt="A Seehra Transport driver handing a parcel to a happy customer" className="w-full h-64 sm:h-80 object-cover" />
-          </div>
           <p className="text-gray-600 leading-relaxed mb-4 text-lg">Seehra Transport is a leading logistics and delivery company specialising in multi-drop and last-mile delivery services across the United Kingdom. Based at Park Lane Industrial Estate in Oldbury, West Midlands, we have spent over a decade building our reputation on three simple things: reliability, efficiency, and genuine customer care.</p>
           <p className="text-gray-600 leading-relaxed mb-4 text-lg">Every week, our team handles thousands of individual parcels across the region, Monday to Friday. Behind every delivery is a professional driver, a carefully planned route, and a support team working to make sure your goods arrive exactly when they should. We know that when you hand something to us, you're trusting us with your reputation as well as your parcel — and that's a responsibility we take seriously on every single job.</p>
           <p className="text-gray-600 leading-relaxed mb-4 text-lg">In today's fast-paced business environment, timely delivery isn't just a service — it's a necessity. A late or mishandled delivery reflects on your brand, not just ours. That's why we've invested in a modern fleet, experienced people, and the systems needed to keep everything running smoothly, so your customers get the seamless experience they expect and you get complete peace of mind.</p>

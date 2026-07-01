@@ -17,8 +17,7 @@ export default function HomePage() {
       <section className="relative min-h-[88vh] flex items-center justify-center overflow-hidden text-center">
         {/* Hero background photo with dark overlay for readability */}
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/delivery-handoff.jpg')" }} />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(10,10,10,0.86) 0%, rgba(20,20,20,0.72) 50%, rgba(42,18,8,0.68) 100%)" }} />
-        <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: "linear-gradient(rgba(247,104,11,1) 1px,transparent 1px),linear-gradient(90deg,rgba(247,104,11,1) 1px,transparent 1px)", backgroundSize: "48px 48px" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(10,10,10,0.62) 0%, rgba(20,20,20,0.48) 50%, rgba(42,18,8,0.45) 100%)" }} />
         <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 py-16">
           <h1 className="font-extrabold text-white mb-5 tracking-tight text-center w-full sm:whitespace-nowrap" style={{ fontSize:"clamp(2.3rem, 5.5vw, 5.5rem)", lineHeight:"1.05" }}>
             Your Freight Secure<br />

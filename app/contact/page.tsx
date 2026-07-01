@@ -19,9 +19,8 @@ export default function ContactPage() {
     <>
       {/* Hero */}
       <section className="relative h-[45vh] min-h-[320px] flex items-end overflow-hidden">
-        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 60%,#2a1208 100%)" }} />
-        <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "linear-gradient(rgba(247,104,11,1) 1px,transparent 1px),linear-gradient(90deg,rgba(247,104,11,1) 1px,transparent 1px)", backgroundSize: "48px 48px" }} />
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/phone-laptop.jpg')" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(10,10,10,0.8) 0%, rgba(20,20,20,0.62) 55%, rgba(42,18,8,0.58) 100%)" }} />
         <div className="relative z-10 max-w-7xl mx-auto px-6 pb-14 w-full">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-2">Get In Touch</p>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">Talk to us</h1>

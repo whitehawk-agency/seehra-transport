@@ -40,8 +40,10 @@ export default function RecruitmentPortalPage() {
 
 
       {/* Hero banner */}
-      <div style={{ background: "linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 100%)" }} className="py-14 px-4 sm:px-6">
-        <div className="max-w-6xl mx-auto">
+      <div className="relative py-14 px-4 sm:px-6 overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/cv-handover.jpg')" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(10,10,10,0.85) 0%, rgba(20,20,20,0.72) 100%)" }} />
+        <div className="relative z-10 max-w-6xl mx-auto">
           <div className="max-w-2xl">
             <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3">Seehra Transport Careers</p>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-6">
