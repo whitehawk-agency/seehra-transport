@@ -49,8 +49,10 @@ function TrackForm() {
 export default function TrackPage() {
   return (
     <>
-      <section className="bg-[#0a0a0a] py-24 px-6">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="relative py-24 px-6 overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/track-scan.jpg')" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(10,10,10,0.82) 0%, rgba(20,20,20,0.66) 55%, rgba(42,18,8,0.62) 100%)" }} />
+        <div className="relative z-10 max-w-7xl mx-auto text-center">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-4">Shipment Tracking</p>
           <h1 className="text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-4">Track your order</h1>
           <p className="text-white/60 max-w-md mx-auto">Enter your tracking reference and delivery postcode and our team will get you a status update on your shipment.</p>
