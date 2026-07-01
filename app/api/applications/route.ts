@@ -115,7 +115,7 @@ export async function POST(req: NextRequest) {
               </table>
               ${cvFilename ? `<p style="margin-top:16px;font-size:13px;color:#666">CV attached: <strong>${cvFilename}</strong></p>` : "<p style='margin-top:16px;font-size:13px;color:#999'>No CV uploaded</p>"}
               <div style="margin-top:20px">
-                <a href="https://seehratransport.com/recruitment-portal/admin" style="background:linear-gradient(135deg,#e62b1e,#f7680b);color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:13px">View in Dashboard →</a>
+                <a href="https://seehratransport.com/careers-admin" style="background:linear-gradient(135deg,#e62b1e,#f7680b);color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:13px">View in Dashboard →</a>
               </div>
             </div>
           </div>

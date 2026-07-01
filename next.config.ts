@@ -42,6 +42,13 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      { source: "/recruitment-portal", destination: "/careers", permanent: true },
+      { source: "/recruitment-portal/admin", destination: "/careers-admin", permanent: true },
+      { source: "/recruitment-portal/:slug", destination: "/careers/:slug", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -28,7 +28,7 @@ export default function ServicesPage() {
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(10,10,10,0.78) 0%, rgba(20,20,20,0.6) 55%, rgba(42,18,8,0.55) 100%)" }} />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pb-10 sm:pb-16 w-full">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-2">Our Expertise</p>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">Comprehensive logistics<br /><span className="text-transparent bg-clip-text" style={{ backgroundImage:"linear-gradient(135deg,#e62b1e,#f7a50b)" }}>solutions</span></h1>
+          <h1 className="text-[2.6rem] leading-[1.1] sm:text-5xl lg:text-6xl font-extrabold text-white">Comprehensive logistics<br /><span className="text-transparent bg-clip-text" style={{ backgroundImage:"linear-gradient(135deg,#e62b1e,#f7a50b)" }}>solutions</span></h1>
         </div>
       </section>
 
@@ -38,7 +38,7 @@ export default function ServicesPage() {
             <div className={i % 2 !== 0 ? "lg:order-2" : ""}>
               <div className="text-4xl mb-3">{s.icon}</div>
               <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-2">{s.subtitle}</p>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-4">{s.title}</h2>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4">{s.title}</h2>
               <p className="text-gray-600 leading-relaxed mb-6 text-sm sm:text-base">{s.desc}</p>
               <Link href="/contact" className="inline-block bg-[#f7680b] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#e55a00] transition-colors text-sm">Get a Quote →</Link>
             </div>
@@ -54,7 +54,7 @@ export default function ServicesPage() {
       <section id="pricing" className="py-14 sm:py-20 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3 text-center">Transparent Pricing</p>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-center mb-3">Simple, Fair Rates</h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-center mb-3">Simple, Fair Rates</h2>
           <p className="text-gray-500 text-center mb-10 max-w-lg mx-auto text-sm">No hidden fees. All prices exclude VAT. Volume discounts available.</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-4xl mx-auto">
             {[
@@ -82,7 +82,7 @@ export default function ServicesPage() {
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(10,10,10,0.88) 0%, rgba(20,20,20,0.82) 60%, rgba(42,18,8,0.82) 100%)" }} />
         <div className="relative z-10 max-w-7xl mx-auto">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3 text-center">For Businesses</p>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white text-center mb-3">Enterprise Solutions</h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white text-center mb-3">Enterprise Solutions</h2>
           <p className="text-white/60 text-center mb-8 max-w-lg mx-auto text-sm">Tailored logistics for high-volume businesses with advanced integration and dedicated support.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[

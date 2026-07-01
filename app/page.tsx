@@ -19,7 +19,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/delivery-handoff.jpg')" }} />
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(10,10,10,0.62) 0%, rgba(20,20,20,0.48) 50%, rgba(42,18,8,0.45) 100%)" }} />
         <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 py-16">
-          <h1 className="font-extrabold text-white mb-5 tracking-tight text-center w-full sm:whitespace-nowrap" style={{ fontSize:"clamp(2rem, 6vw, 5.5rem)", lineHeight:"1.08" }}>
+          <h1 className="font-extrabold text-white mb-5 tracking-tight text-center w-full sm:whitespace-nowrap" style={{ fontSize:"clamp(2.6rem, 7vw, 5.5rem)", lineHeight:"1.05" }}>
             Your Freight Secure<br />
             <span className="text-transparent bg-clip-text" style={{ backgroundImage:"linear-gradient(135deg,#e62b1e,#f7a50b)" }}>In Our Transit</span>
           </h1>
@@ -107,7 +107,7 @@ export default function HomePage() {
             <h2 className="text-4xl sm:text-5xl font-extrabold text-white leading-tight mb-3">Drive with Seehra.</h2>
             <p className="text-white/80 text-base sm:text-lg max-w-xl">Hiring self-employed delivery drivers for East & West Midlands routes. Weekly pay, training provided, fuel paid on top of your day rate.</p>
           </div>
-          <Link href="/recruitment-portal" className="bg-white text-[#f7680b] px-8 py-4 rounded-xl font-bold text-base whitespace-nowrap hover:bg-orange-50 transition-colors shadow-xl w-full lg:w-auto text-center">View Careers →</Link>
+          <Link href="/careers" className="bg-white text-[#f7680b] px-8 py-4 rounded-xl font-bold text-base whitespace-nowrap hover:bg-orange-50 transition-colors shadow-xl w-full lg:w-auto text-center">View Careers →</Link>
         </div>
       </section>
     </>

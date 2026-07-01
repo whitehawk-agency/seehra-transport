@@ -20,7 +20,7 @@ export default function AboutPage() {
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(10,10,10,0.78) 0%, rgba(20,20,20,0.6) 55%, rgba(42,18,8,0.55) 100%)" }} />
         <div className="relative z-10 max-w-7xl mx-auto px-6 pb-16 w-full">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-2">About Seehra Transport</p>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">Your trusted<br /><span className="text-transparent bg-clip-text" style={{ backgroundImage:"linear-gradient(135deg,#e62b1e,#f7a50b)" }}>logistics partner</span></h1>
+          <h1 className="text-[2.6rem] leading-[1.1] sm:text-5xl lg:text-6xl font-extrabold text-white">Your trusted<br /><span className="text-transparent bg-clip-text" style={{ backgroundImage:"linear-gradient(135deg,#e62b1e,#f7a50b)" }}>logistics partner</span></h1>
         </div>
       </section>
 
@@ -28,7 +28,7 @@ export default function AboutPage() {
       <section className="py-14 sm:py-20 px-4 sm:px-6 bg-white">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3">Who We Are</p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-6">Invisible every day,<br />but essential to everyone</h2>
+          <h2 className="text-[2.2rem] leading-[1.15] sm:text-4xl lg:text-5xl font-extrabold mb-6">Invisible every day,<br />but essential to everyone</h2>
           <p className="text-gray-600 leading-relaxed mb-4 text-lg">Seehra Transport is a leading logistics and delivery company specialising in multi-drop and last-mile delivery services across the United Kingdom. With over a decade of experience from our base in Oldbury, West Midlands, we've built our reputation on three simple things: reliability, efficiency, and genuine customer care.</p>
           <p className="text-gray-600 leading-relaxed mb-8 text-lg">Every week our team handles thousands of parcels, and behind each one is a professional driver and a support team making sure your goods arrive exactly when they should. When you hand something to us, you're trusting us with your reputation as well as your parcel — and that's a responsibility we take seriously on every single job.</p>
           <Link href="/contact" className="inline-block bg-[#f7680b] text-white px-8 py-4 rounded-full font-bold hover:bg-[#e55a00] transition-colors">Get in Touch Today →</Link>
@@ -41,7 +41,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-gray-50/97" />
         <div className="relative z-10 max-w-7xl mx-auto">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3 text-center">Our Core Values</p>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-center mb-10">The principles that guide everything we do</h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-center mb-10">The principles that guide everything we do</h2>
           <div className="grid md:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {values.map(v => (
               <div key={v.num} className="bg-white rounded-2xl p-7 border border-gray-100 hover:border-orange-200 hover:shadow-lg transition-all">

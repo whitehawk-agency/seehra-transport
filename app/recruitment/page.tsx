@@ -159,7 +159,7 @@ export default function RecruitmentPage() {
               {filtered.map(job => (
                 <Link
                   key={job.id}
-                  href={`/recruitment-portal/${job.id}`}
+                  href={`/careers/${job.id}`}
                   className="group bg-white rounded-2xl border border-gray-200 p-5 sm:p-6 hover:border-[#f7680b] hover:shadow-md transition-all block"
                 >
                   <div className="flex items-start justify-between gap-4">

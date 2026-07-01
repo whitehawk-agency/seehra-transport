@@ -23,7 +23,7 @@ export default function ContactPage() {
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(10,10,10,0.8) 0%, rgba(20,20,20,0.62) 55%, rgba(42,18,8,0.58) 100%)" }} />
         <div className="relative z-10 max-w-7xl mx-auto px-6 pb-14 w-full">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-2">Get In Touch</p>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">Talk to us</h1>
+          <h1 className="text-[2.6rem] leading-[1.1] sm:text-5xl lg:text-6xl font-extrabold text-white">Talk to us</h1>
         </div>
       </section>
 
