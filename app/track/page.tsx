@@ -50,7 +50,7 @@ export default function TrackPage() {
   return (
     <>
       <section className="relative py-24 px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/track-scan.jpg')" }} />
+        <div className="absolute inset-0 bg-cover" style={{ backgroundImage: "url('/track-scan.jpg')", backgroundPosition: "center 22%" }} />
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(10,10,10,0.82) 0%, rgba(20,20,20,0.66) 55%, rgba(42,18,8,0.62) 100%)" }} />
         <div className="relative z-10 max-w-7xl mx-auto text-center">
           <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-4">Shipment Tracking</p>
