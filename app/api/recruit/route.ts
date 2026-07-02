@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${resendKey}` },
         body: JSON.stringify({
           from: "Seehra Transport <noreply@seehratransport.com>",
-          to: ["recruitment@seehratransport.com"],
+          to: ["admin@seehratransport.com"],
           reply_to: email,
           subject: `New Driver Application — ${esc(name)} · ${esc(licence || "Licence not specified")}`,
           html: `

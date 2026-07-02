@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${resendKey}` },
         body: JSON.stringify({
           from: "Seehra Transport <noreply@seehratransport.com>",
-          to: ["info@seehratransport.com"],
+          to: ["admin@seehratransport.com"],
           reply_to: email,
           subject: `New Quote Request — ${esc(service)} from ${esc(collection)} to ${esc(delivery)}`,
           html: `

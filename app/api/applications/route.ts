@@ -92,7 +92,7 @@ export async function POST(req: NextRequest) {
     if (resendKey) {
       const emailPayload: Record<string, unknown> = {
         from: "Seehra Transport Recruitment <noreply@seehratransport.com>",
-        to: ["recruitment@seehratransport.com"],
+        to: ["admin@seehratransport.com"],
         reply_to: body.email,
         subject: `New Application — ${body.jobTitle} — ${body.firstName} ${body.lastName}`,
         html: `
