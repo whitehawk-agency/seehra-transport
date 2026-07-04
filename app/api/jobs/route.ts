@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { isAuthorised } from "@/lib/adminAuth";
 import { DEFAULT_JOBS, Job } from "@/lib/jobs";
 
 // Simple file-based persistence using Vercel's /tmp
@@ -27,8 +28,7 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
-  const adminKey = req.headers.get("x-admin-key");
-  if (adminKey !== process.env.ADMIN_KEY && process.env.ADMIN_KEY) {
+  if (!isAuthorised(req)) {
     return NextResponse.json({ error: "Unauthorised" }, { status: 401 });
   }
   try {

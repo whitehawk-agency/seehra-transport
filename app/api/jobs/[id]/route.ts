@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { isAuthorised } from "@/lib/adminAuth";
 import { Job } from "@/lib/jobs";
 import { readFileSync, writeFileSync, existsSync } from "fs";
 
@@ -11,8 +12,7 @@ function saveJobs(jobs: Job[]) { writeFileSync(DB_PATH, JSON.stringify(jobs)); }
 
 export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const adminKey = req.headers.get("x-admin-key");
-  if (adminKey !== process.env.ADMIN_KEY && process.env.ADMIN_KEY) {
+  if (!isAuthorised(req)) {
     return NextResponse.json({ error: "Unauthorised" }, { status: 401 });
   }
   const body = await req.json();
@@ -26,8 +26,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
 
 export async function DELETE(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const adminKey = req.headers.get("x-admin-key");
-  if (adminKey !== process.env.ADMIN_KEY && process.env.ADMIN_KEY) {
+  if (!isAuthorised(req)) {
     return NextResponse.json({ error: "Unauthorised" }, { status: 401 });
   }
   const jobs = getJobs();

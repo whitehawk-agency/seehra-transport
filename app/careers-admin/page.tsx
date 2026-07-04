@@ -29,6 +29,7 @@ export default function AdminDashboard() {
   const [filterStatus, setFilterStatus] = useState("All");
   const [jobForm, setJobForm] = useState({ title:"", department:"Operations", location:"", type:"Self-employed" as const, salary:"", description:"", requirements:"", responsibilities:"", benefits:"" });
   const [postStatus, setPostStatus] = useState<"idle"|"saving"|"saved">("idle");
+  const [editingId, setEditingId] = useState<string|null>(null);
 
   async function login() {
     if (!email.trim() || !password.trim()) return;
@@ -65,33 +66,67 @@ export default function AdminDashboard() {
     setSelected(p => p?.id === id ? { ...p, status } : p);
   }
 
-  async function toggleJob(id: string, current: string) {
-    const status = current === "active" ? "paused" : "active";
-    await fetch(`/api/jobs/${id}`, {
-      method: "PATCH",
-      headers: { "Content-Type":"application/json", "x-admin-key": adminKey },
-      body: JSON.stringify({ status }),
+  function resetJobForm() {
+    setJobForm({ title:"", department:"Operations", location:"", type:"Self-employed", salary:"", description:"", requirements:"", responsibilities:"", benefits:"" });
+    setEditingId(null);
+  }
+
+  function startEdit(job: Job) {
+    setJobForm({
+      title: job.title || "",
+      department: (job as any).department || "Operations",
+      location: job.location || "",
+      type: (job.type as any) || "Self-employed",
+      salary: (job as any).salary || "",
+      description: job.description || "",
+      requirements: Array.isArray((job as any).requirements) ? (job as any).requirements.join("\n") : ((job as any).requirements || ""),
+      responsibilities: Array.isArray((job as any).responsibilities) ? (job as any).responsibilities.join("\n") : ((job as any).responsibilities || ""),
+      benefits: Array.isArray((job as any).benefits) ? (job as any).benefits.join("\n") : ((job as any).benefits || ""),
     });
-    setJobs(p => p.map(j => j.id === id ? { ...j, status: status as any } : j));
+    setEditingId(job.id);
+    setPostStatus("idle");
+    setTab("post");
+  }
+
+  async function deleteJob(id: string, title: string) {
+    if (!confirm(`Delete the job "${title}"? This cannot be undone. Existing applications are kept.`)) return;
+    const res = await fetch(`/api/jobs/${id}`, {
+      method: "DELETE",
+      headers: { "x-admin-key": adminKey },
+    });
+    if (res.ok) {
+      setJobs(p => p.filter(j => j.id !== id));
+    } else {
+      alert("Could not delete the job. Please try again.");
+    }
   }
 
   async function postJob(e: React.FormEvent) {
     e.preventDefault(); setPostStatus("saving");
-    const res = await fetch("/api/jobs", {
-      method: "POST",
+    const payload = {
+      ...jobForm,
+      requirements: jobForm.requirements.split("\n").filter(Boolean),
+      responsibilities: jobForm.responsibilities.split("\n").filter(Boolean),
+      benefits: jobForm.benefits.split("\n").filter(Boolean),
+    };
+    const res = await fetch(editingId ? `/api/jobs/${editingId}` : "/api/jobs", {
+      method: editingId ? "PATCH" : "POST",
       headers: { "Content-Type":"application/json", "x-admin-key": adminKey },
-      body: JSON.stringify({
-        ...jobForm,
-        requirements: jobForm.requirements.split("\n").filter(Boolean),
-        responsibilities: jobForm.responsibilities.split("\n").filter(Boolean),
-        benefits: jobForm.benefits.split("\n").filter(Boolean),
-      }),
+      body: JSON.stringify(payload),
     });
     if (res.ok) {
-      const newJob = await res.json(); setJobs(p => [...p, newJob]);
-      setJobForm({ title:"", department:"Operations", location:"", type:"Self-employed", salary:"", description:"", requirements:"", responsibilities:"", benefits:"" });
+      const savedJob = await res.json();
+      if (editingId) {
+        setJobs(p => p.map(j => j.id === editingId ? savedJob : j));
+      } else {
+        setJobs(p => [...p, savedJob]);
+      }
+      resetJobForm();
       setPostStatus("saved");
-      setTimeout(() => { setPostStatus("idle"); setTab("jobs"); }, 1500);
+      setTimeout(() => { setPostStatus("idle"); setTab("jobs"); }, 1200);
+    } else {
+      setPostStatus("idle");
+      alert("Could not save the job. Please try again.");
     }
   }
 
@@ -203,7 +238,7 @@ export default function AdminDashboard() {
           {([
             { key:"applications", label:`Applications (${applications.length})` },
             { key:"jobs", label:`Jobs (${jobs.filter(j=>j.status==="active").length} active)` },
-            { key:"post", label:"+ Post New Job" },
+            { key:"post", label:"+ Create Job" },
           ] as const).map(t => (
             <button key={t.key} onClick={() => setTab(t.key)}
               className={`px-5 py-2.5 rounded-xl text-sm font-bold whitespace-nowrap transition-all ${tab===t.key ? "text-white" : "bg-white text-gray-500 border border-gray-200 hover:text-gray-700"}`}
@@ -381,13 +416,13 @@ export default function AdminDashboard() {
                     {applications.filter(a => a.jobId === job.id).length} applicants
                   </span>
                   <div className="flex gap-2">
-                    <Link href={`/careers/${job.id}`} target="_blank"
+                    <button onClick={() => startEdit(job)}
                       className="text-xs border border-orange-200 text-[#f7680b] px-3 py-1.5 rounded-lg hover:bg-orange-50 transition-colors font-semibold">
-                      View
-                    </Link>
-                    <button onClick={() => toggleJob(job.id, job.status)}
-                      className="text-xs border border-gray-200 text-gray-500 px-3 py-1.5 rounded-lg hover:bg-gray-50 transition-colors font-semibold">
-                      {job.status === "active" ? "Pause" : "Activate"}
+                      Edit
+                    </button>
+                    <button onClick={() => deleteJob(job.id, job.title)}
+                      className="text-xs border border-red-200 text-red-600 px-3 py-1.5 rounded-lg hover:bg-red-50 transition-colors font-semibold">
+                      Delete
                     </button>
                   </div>
                 </div>
@@ -399,7 +434,13 @@ export default function AdminDashboard() {
         {/* ── POST JOB TAB ── */}
         {tab === "post" && (
           <div className="max-w-2xl">
-            <h2 className="text-xl font-extrabold mb-5">Post a New Job</h2>
+            <div className="flex items-center justify-between mb-5">
+              <h2 className="text-xl font-extrabold">{editingId ? "Edit Job" : "Create a New Job"}</h2>
+              {editingId && (
+                <button type="button" onClick={() => { resetJobForm(); setTab("jobs"); }}
+                  className="text-xs text-gray-400 hover:text-gray-700 font-semibold">Cancel edit</button>
+              )}
+            </div>
             <form onSubmit={postJob} className="bg-white rounded-2xl border border-gray-100 p-6 flex flex-col gap-4">
               <div><label className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-1.5">Job Title *</label><input required className={inp} placeholder="e.g. Multi-Drop Delivery Driver" value={jobForm.title} onChange={e=>setJobForm(p=>({...p,title:e.target.value}))} /></div>
               <div className="grid grid-cols-2 gap-3">
@@ -425,7 +466,7 @@ export default function AdminDashboard() {
               <button type="submit" disabled={postStatus==="saving"}
                 className="w-full py-4 rounded-xl font-bold text-white text-sm hover:opacity-90 disabled:opacity-50 transition-all"
                 style={{ background:"linear-gradient(135deg,#e62b1e,#f7680b)" }}>
-                {postStatus==="saving" ? "Posting..." : postStatus==="saved" ? "Job Posted!" : "Post Job →"}
+                {postStatus==="saving" ? "Saving..." : postStatus==="saved" ? (editingId ? "Job Updated!" : "Job Created!") : (editingId ? "Save Changes →" : "Create Job →")}
               </button>
             </form>
           </div>
