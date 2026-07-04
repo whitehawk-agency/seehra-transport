@@ -33,7 +33,7 @@ export default function RecruitmentPortalPage() {
   });
 
   const indeedCompanyUrl = "https://uk.indeed.com/cmp/Seehra-Transport-Limited";
-  const linkedinCompanyUrl = "https://www.linkedin.com/seehratransport";
+  const linkedinCompanyUrl = "https://www.linkedin.com/company/seehratransport/";
 
   return (
     <div className="min-h-screen" style={{ background: "#f3f2ef" }}>

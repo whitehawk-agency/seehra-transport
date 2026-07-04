@@ -48,7 +48,7 @@ export default function JobDetailPage({ params }: { params: Promise<{ slug: stri
   );
 
   const indeedSearchUrl = "https://uk.indeed.com/cmp/Seehra-Transport-Limited";
-  const linkedinSearchUrl = "https://www.linkedin.com/seehratransport";
+  const linkedinSearchUrl = "https://www.linkedin.com/company/seehratransport/";
 
   return (
     <div className="min-h-screen" style={{ background: "#f3f2ef" }}>
