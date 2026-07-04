@@ -5,9 +5,9 @@ const services = [
   { href: "/services#multi-drop", icon: "", title: "Multi-Drop Delivery", desc: "Efficient multi-stop routes for businesses that need to reach multiple locations. We optimise every route for speed and cost.", tags: ["Route Optimised","Bulk Volume","POD Included"] },
   { href: "/services#last-mile", icon: "", title: "Last-Mile Logistics", desc: "From depot or warehouse directly to your customer's door. GPS tracked with photo proof of delivery.", tags: ["GPS Tracked","POD","B2C & B2B"] },
   { href: "/services#flexible", icon: "", title: "Flexible Solutions", desc: "Custom delivery arrangements — dedicated vehicles, scheduled collections, out-of-hours and specialist handling.", tags: ["Custom","Dedicated","Out-of-Hours"] },
-  { href: "/services#pricing", icon: "", title: "Same-Day Courier", desc: "Urgent delivery within 4–6 hours for time-critical shipments. From £24.99.", tags: ["4–6 hrs","Express"] },
-  { href: "/services#pricing", icon: "", title: "Next-Day Express", desc: "Next working day with AM, PM or evening time slots. From £12.99.", tags: ["Next Day","Flexible Slots"] },
-  { href: "/services#pricing", icon: "", title: "Standard Delivery", desc: "Cost-effective 2–3 working day service with full tracking. From £4.99.", tags: ["2–3 Days","Tracked"] },
+  { href: "/services#pricing", icon: "", title: "Same-Day Courier", desc: "Urgent delivery within 4–6 hours for time-critical shipments.", tags: ["4–6 hrs","Express"] },
+  { href: "/services#pricing", icon: "", title: "Next-Day Express", desc: "Next working day with AM, PM or evening time slots.", tags: ["Next Day","Flexible Slots"] },
+  { href: "/services#pricing", icon: "", title: "Standard Delivery", desc: "Cost-effective 2–3 working day service with full tracking.", tags: ["2–3 Days","Tracked"] },
 ];
 
 export default function HomePage() {

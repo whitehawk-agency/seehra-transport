@@ -17,7 +17,7 @@ function TrackForm() {
         <h2 className="text-2xl font-extrabold mb-6">Track your shipment</h2>
         <div className="flex flex-col gap-4">
           <div><label className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-1.5">Tracking Reference *</label><input required placeholder="e.g. ST-2024-00123" className={inp} value={ref} onChange={e=>setRef(e.target.value)} /></div>
-          <div><label className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-1.5">Delivery Postcode *</label><input required placeholder="e.g. B69 4JX" className={inp} value={postcode} onChange={e=>setPostcode(e.target.value)} /></div>
+          <div><label className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-1.5">Delivery Postcode *</label><input required placeholder="e.g. B69 3EX" className={inp} value={postcode} onChange={e=>setPostcode(e.target.value)} /></div>
           <button type="submit" className="w-full py-4 rounded-xl font-bold text-white text-sm uppercase tracking-wide transition-all hover:opacity-90" style={{ background:"linear-gradient(135deg,#e62b1e,#f7680b)" }}>Track Shipment →</button>
         </div>
       </form>

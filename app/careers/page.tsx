@@ -32,8 +32,8 @@ export default function RecruitmentPortalPage() {
     return matchSearch && matchType && matchLoc;
   });
 
-  const indeedCompanyUrl = "https://uk.indeed.com/cmp/Seehra-Transport/jobs";
-  const linkedinCompanyUrl = "https://www.linkedin.com/company/seehra-transport/jobs";
+  const indeedCompanyUrl = "https://uk.indeed.com/cmp/Seehra-Transport-Limited";
+  const linkedinCompanyUrl = "https://www.linkedin.com/seehratransport";
 
   return (
     <div className="min-h-screen" style={{ background: "#f3f2ef" }}>

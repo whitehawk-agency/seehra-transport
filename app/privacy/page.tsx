@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 
 const sections: [string, string[]][] = [
   ["Who We Are", [
-    "Seehra Transport Limited (\"we\", \"us\", \"our\") is a logistics and delivery company registered in England & Wales (Company No. 09462678), with its registered office at Unit 5 & 6 Park Lane Industrial Estate, Park Lane, Oldbury, West Midlands, B69 4JX.",
+    "Seehra Transport Limited (\"we\", \"us\", \"our\") is a logistics and delivery company registered in England & Wales (Company No. 09462678), with its registered office at 11 Union Road, Oldbury, England, B69 3EX.",
     "We are the data controller responsible for your personal data. For any data protection queries, contact us at info@seehratransport.com.",
   ]],
   ["Information We Collect", [
@@ -41,7 +41,7 @@ const sections: [string, string[]][] = [
     "We implement appropriate technical and organisational measures to protect your personal data against unauthorised access, loss, or misuse. While no system can be guaranteed completely secure, we take reasonable steps to safeguard the information you provide.",
   ]],
   ["Contact Us", [
-    "For any privacy-related queries, email info@seehratransport.com or write to: Seehra Transport Limited, Unit 5 & 6 Park Lane Industrial Estate, Park Lane, Oldbury, West Midlands, B69 4JX.",
+    "For any privacy-related queries, email info@seehratransport.com or write to: Seehra Transport Limited, 11 Union Road, Oldbury, England, B69 3EX.",
   ]],
 ];
 

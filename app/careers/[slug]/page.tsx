@@ -47,8 +47,8 @@ export default function JobDetailPage({ params }: { params: Promise<{ slug: stri
     </div>
   );
 
-  const indeedSearchUrl = `https://uk.indeed.com/jobs?q=${encodeURIComponent(job.title)}&l=${encodeURIComponent(job.location)}`;
-  const linkedinSearchUrl = `https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent(job.title)}&location=${encodeURIComponent(job.location)}`;
+  const indeedSearchUrl = "https://uk.indeed.com/cmp/Seehra-Transport-Limited";
+  const linkedinSearchUrl = "https://www.linkedin.com/seehratransport";
 
   return (
     <div className="min-h-screen" style={{ background: "#f3f2ef" }}>

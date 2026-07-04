@@ -188,7 +188,7 @@ export async function PATCH(req: NextRequest) {
               <p style="font-size:14px;color:#555;margin-top:20px">We look forward to meeting you.</p>
               <p style="font-size:14px;color:#333;font-weight:bold;margin-top:4px">The Seehra Transport Recruitment Team</p>
               <hr style="border:none;border-top:1px solid #eee;margin:24px 0" />
-              <p style="font-size:12px;color:#999">Seehra Transport Limited · Unit 5 & 6 Park Lane Industrial Estate, Park Lane, Oldbury, West Midlands, B69 4JX</p>
+              <p style="font-size:12px;color:#999">Seehra Transport Limited · 11 Union Road, Oldbury, England, B69 3EX</p>
             </div>
           </div>
         `,

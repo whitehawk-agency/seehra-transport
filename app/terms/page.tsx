@@ -40,7 +40,7 @@ const sections: [string, string[]][] = [
     "We may update these Terms from time to time. The version in force at the time of your booking applies to that booking. The latest version is always available on our website.",
   ]],
   ["12. Contact", [
-    "For any questions about these Terms, contact us at info@seehratransport.com or write to: Seehra Transport Limited, Unit 5 & 6 Park Lane Industrial Estate, Park Lane, Oldbury, West Midlands, B69 4JX.",
+    "For any questions about these Terms, contact us at info@seehratransport.com or write to: Seehra Transport Limited, 11 Union Road, Oldbury, England, B69 3EX.",
   ]],
 ];
 

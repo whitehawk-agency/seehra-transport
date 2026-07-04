@@ -36,7 +36,7 @@ export default function ContactPage() {
               { icon:"", label:"Email", value:"info@seehratransport.com", href:"mailto:info@seehratransport.com" },
               { icon:"", label:"Phone", value:"07990 702743", href:"tel:07990702743" },
               { icon:"", label:"Secondary", value:"07512 837585", href:"tel:07512837585" },
-              { icon:"", label:"Head Office", value:"Unit 5 & 6 Park Lane Industrial Estate, Park Lane, Oldbury, West Midlands, B69 4JX" },
+              { icon:"", label:"Head Office", value:"11 Union Road, Oldbury, England, B69 3EX" },
               { icon:"", label:"Hours", value:"Monday – Friday, 9:00 AM – 5:00 PM · Sat–Sun Closed" },
             ].map(d => (
               <div key={d.label} className="mb-5 border-l-2 border-[#f7680b] pl-4">
