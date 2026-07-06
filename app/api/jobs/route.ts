@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isAuthorised } from "@/lib/adminAuth";
-import { DEFAULT_JOBS, Job } from "@/lib/jobs";
+import { Job } from "@/lib/jobs";
 
 // Simple file-based persistence using Vercel's /tmp
 import { readFileSync, writeFileSync, existsSync } from "fs";
@@ -13,9 +13,8 @@ function getJobs(): Job[] {
       return JSON.parse(readFileSync(DB_PATH, "utf-8"));
     }
   } catch {}
-  // Seed with defaults
-  writeFileSync(DB_PATH, JSON.stringify(DEFAULT_JOBS));
-  return DEFAULT_JOBS;
+  // Start empty — jobs are created by the admin, not auto-seeded.
+  return [];
 }
 
 function saveJobs(jobs: Job[]) {
