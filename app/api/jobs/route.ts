@@ -1,28 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isAuthorised } from "@/lib/adminAuth";
+import { readData, writeData } from "@/lib/store";
 import { Job } from "@/lib/jobs";
 
-// Simple file-based persistence using Vercel's /tmp
-import { readFileSync, writeFileSync, existsSync } from "fs";
+export const dynamic = "force-dynamic";
 
-const DB_PATH = "/tmp/seehra-jobs.json";
-
-function getJobs(): Job[] {
-  try {
-    if (existsSync(DB_PATH)) {
-      return JSON.parse(readFileSync(DB_PATH, "utf-8"));
-    }
-  } catch {}
-  // Start empty — jobs are created by the admin, not auto-seeded.
-  return [];
-}
-
-function saveJobs(jobs: Job[]) {
-  writeFileSync(DB_PATH, JSON.stringify(jobs));
-}
+const KEY = "jobs";
 
 export async function GET() {
-  const jobs = getJobs();
+  const jobs = await readData<Job[]>(KEY, []);
   return NextResponse.json(jobs);
 }
 
@@ -32,7 +18,7 @@ export async function POST(req: NextRequest) {
   }
   try {
     const body = await req.json();
-    const jobs = getJobs();
+    const jobs = await readData<Job[]>(KEY, []);
     const newJob: Job = {
       ...body,
       id: `job-${Date.now()}`,
@@ -41,7 +27,7 @@ export async function POST(req: NextRequest) {
       status: "active",
     };
     jobs.push(newJob);
-    saveJobs(jobs);
+    await writeData(KEY, jobs);
     return NextResponse.json(newJob);
   } catch {
     return NextResponse.json({ error: "Invalid request" }, { status: 400 });

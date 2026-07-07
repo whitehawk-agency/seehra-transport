@@ -1,39 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Application } from "@/lib/jobs";
-import { readFileSync, writeFileSync, existsSync } from "fs";
-import crypto from "crypto";
+import { readData, writeData } from "@/lib/store";
+import { isAuthorised } from "@/lib/adminAuth";
 
-// The opaque admin token = SHA-256(secret + adminEmail), matching /api/admin-auth.
-// This means the raw admin password/key is never sent to or stored in the browser.
-function isAuthorised(req: NextRequest): boolean {
-  const adminKey = process.env.ADMIN_KEY;
-  const adminPassword = process.env.ADMIN_PASSWORD;
-  const adminEmail = process.env.ADMIN_EMAIL || "admin@seehratransport.com";
-  // If nothing is configured, deny by default (fail closed)
-  if (!adminKey && !adminPassword) return false;
-  const secret = adminPassword || adminKey || "";
-  const expected = crypto.createHash("sha256").update(secret + adminEmail).digest("hex");
-  const provided = req.headers.get("x-admin-key") || "";
-  if (provided.length !== expected.length) return false;
-  try {
-    return crypto.timingSafeEqual(Buffer.from(provided), Buffer.from(expected));
-  } catch {
-    return false;
-  }
-}
+export const dynamic = "force-dynamic";
 
-const DB_PATH = "/tmp/seehra-applications.json";
-function getApps(): Application[] {
-  try { if (existsSync(DB_PATH)) return JSON.parse(readFileSync(DB_PATH,"utf-8")); } catch {}
-  return [];
-}
-function saveApps(apps: Application[]) { writeFileSync(DB_PATH, JSON.stringify(apps)); }
+const KEY = "applications";
+async function getApps(): Promise<Application[]> { return readData<Application[]>(KEY, []); }
+async function saveApps(apps: Application[]) { await writeData(KEY, apps); }
 
 export async function GET(req: NextRequest) {
   if (!isAuthorised(req)) {
     return NextResponse.json({ error: "Unauthorised" }, { status: 401 });
   }
-  return NextResponse.json(getApps());
+  return NextResponse.json(await getApps());
 }
 
 export async function POST(req: NextRequest) {
@@ -61,7 +41,7 @@ export async function POST(req: NextRequest) {
       body = await req.json();
     }
 
-    const apps = getApps();
+    const apps = await getApps();
     const app: Application = {
       ...body,
       id: `app-${Date.now()}`,
@@ -85,7 +65,7 @@ export async function POST(req: NextRequest) {
       cvMimeType: cvMimeType || "",
     };
     apps.push(app);
-    saveApps(apps);
+    await saveApps(apps);
 
     // Email notification to recruitment team
     const resendKey = process.env.RESEND_API_KEY;
@@ -147,13 +127,13 @@ export async function PATCH(req: NextRequest) {
   }
   const body = await req.json();
   const { id, ...updates } = body;
-  const apps = getApps();
+  const apps = await getApps();
   const idx = apps.findIndex(a => a.id === id);
   if (idx === -1) return NextResponse.json({ error: "Not found" }, { status: 404 });
 
   const oldStatus = apps[idx].status;
   apps[idx] = { ...apps[idx], ...updates };
-  saveApps(apps);
+  await saveApps(apps);
 
   // If moved to interview — email candidate requesting CV (if they haven't uploaded one)
   const resendKey = process.env.RESEND_API_KEY;
