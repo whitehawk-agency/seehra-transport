@@ -51,32 +51,6 @@ export default function ServicesPage() {
         </section>
       ))}
 
-      <section id="pricing" className="py-14 sm:py-20 px-4 sm:px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3 text-center">Transparent Pricing</p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-center mb-3">Simple, Fair Rates</h2>
-          <p className="text-gray-500 text-center mb-10 max-w-lg mx-auto text-sm">No hidden fees. All prices exclude VAT. Volume discounts available.</p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-4xl mx-auto">
-            {[
-              { name:"Standard Delivery", price:"£4.99", period:"2–3 working days", features:["Full tracking","Up to 25kg","Proof of delivery","Email notifications"] },
-              { name:"Next Day Delivery", price:"£12.99", period:"Next working day", features:["1-hour time window","Priority handling","SMS notifications","AM / PM / Eve slots"], popular:true },
-              { name:"Same Day Delivery", price:"£24.99", period:"Same day · 4-hr window", features:["Express handling","Real-time tracking","Urgent collection","Live driver updates"] },
-            ].map(plan => (
-              <div key={plan.name} className={`rounded-2xl p-6 border ${(plan as any).popular ? "border-[#f7680b] bg-[#0a0a0a] shadow-xl shadow-orange-500/10" : "border-gray-200 bg-white"}`}>
-                {(plan as any).popular && <div className="text-xs font-bold text-[#f7680b] tracking-widest uppercase mb-2">Most Popular</div>}
-                <h3 className={`text-base font-bold mb-1 ${(plan as any).popular ? "text-white":"text-gray-900"}`}>{plan.name}</h3>
-                <div className={`text-3xl font-extrabold mb-1 ${(plan as any).popular ? "text-white":"text-gray-900"}`}>{plan.price}</div>
-                <div className={`text-xs mb-4 ${(plan as any).popular ? "text-white/50":"text-gray-400"}`}>{plan.period}</div>
-                <ul className="flex flex-col gap-1.5 mb-5">
-                  {plan.features.map(f => <li key={f} className={`text-xs flex items-center gap-2 ${(plan as any).popular ? "text-white/70":"text-gray-600"}`}><span className="text-[#f7680b]"></span>{f}</li>)}
-                </ul>
-                <Link href="/contact" className={`block text-center py-2.5 rounded-xl font-bold text-sm transition-colors ${(plan as any).popular ? "bg-[#f7680b] text-white hover:bg-[#e55a00]":"border border-gray-200 text-gray-700 hover:border-[#f7680b] hover:text-[#f7680b]"}`}>Get Started</Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="relative py-14 sm:py-20 px-4 sm:px-6">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/warehouse.jpg')" }} />
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(10,10,10,0.88) 0%, rgba(20,20,20,0.82) 60%, rgba(42,18,8,0.82) 100%)" }} />

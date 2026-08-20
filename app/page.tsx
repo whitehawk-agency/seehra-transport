@@ -5,9 +5,9 @@ const services = [
   { href: "/services#multi-drop", icon: "", title: "Multi-Drop Delivery", desc: "Efficient multi-stop routes for businesses that need to reach multiple locations. We optimise every route for speed and cost.", tags: ["Route Optimised","Bulk Volume","POD Included"] },
   { href: "/services#last-mile", icon: "", title: "Last-Mile Logistics", desc: "From depot or warehouse directly to your customer's door. GPS tracked with photo proof of delivery.", tags: ["GPS Tracked","POD","B2C & B2B"] },
   { href: "/services#flexible", icon: "", title: "Flexible Solutions", desc: "Custom delivery arrangements — dedicated vehicles, scheduled collections, out-of-hours and specialist handling.", tags: ["Custom","Dedicated","Out-of-Hours"] },
-  { href: "/services#pricing", icon: "", title: "Same-Day Courier", desc: "Urgent delivery within 4–6 hours for time-critical shipments.", tags: ["4–6 hrs","Express"] },
-  { href: "/services#pricing", icon: "", title: "Next-Day Express", desc: "Next working day with AM, PM or evening time slots.", tags: ["Next Day","Flexible Slots"] },
-  { href: "/services#pricing", icon: "", title: "Standard Delivery", desc: "Cost-effective 2–3 working day service with full tracking.", tags: ["2–3 Days","Tracked"] },
+  { href: "/services", icon: "", title: "Same-Day Courier", desc: "Urgent delivery within 4–6 hours for time-critical shipments.", tags: ["4–6 hrs","Express"] },
+  { href: "/services", icon: "", title: "Next-Day Express", desc: "Next working day with AM, PM or evening time slots.", tags: ["Next Day","Flexible Slots"] },
+  { href: "/services", icon: "", title: "Standard Delivery", desc: "Cost-effective 2–3 working day service with full tracking.", tags: ["2–3 Days","Tracked"] },
 ];
 
 export default function HomePage() {
@@ -69,34 +69,6 @@ export default function HomePage() {
           <div className="mt-8 text-center">
             <Link href="/services" className="inline-block border border-gray-200 hover:border-[#f7680b] text-gray-700 hover:text-[#f7680b] px-8 py-3 rounded-xl font-semibold text-sm transition-all">View all services →</Link>
           </div>
-        </div>
-      </section>
-
-      {/*  PRICING  */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-[#f7680b] text-xs font-bold tracking-widest uppercase mb-3 text-center">Transparent Pricing</p>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-center mb-3">Simple, Fair Rates</h2>
-          <p className="text-gray-500 text-center mb-10 max-w-lg mx-auto text-sm">No hidden fees. No surprises. Volume discounts available for businesses.</p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {[
-              { name:"Standard Delivery", price:"£4.99", period:"2–3 working days", features:["Full tracking included","Up to 25kg","Proof of delivery","Email notifications"] },
-              { name:"Next Day Delivery", price:"£12.99", period:"Next working day", features:["1-hour time window","Priority handling","SMS notifications","AM / PM / Eve slots"], popular:true },
-              { name:"Same Day Delivery", price:"£24.99", period:"Same day · 4-hr window", features:["Express handling","Real-time tracking","Urgent collection","Live driver updates"] },
-            ].map(plan => (
-              <div key={plan.name} className={`rounded-2xl p-6 border ${(plan as any).popular ? "border-[#f7680b] bg-[#0a0a0a] shadow-xl shadow-orange-500/10 sm:scale-105" : "border-gray-200 bg-white"}`}>
-                {(plan as any).popular && <div className="text-xs font-bold text-[#f7680b] tracking-widest uppercase mb-3">Most Popular</div>}
-                <h3 className={`text-lg font-bold mb-1 ${(plan as any).popular ? "text-white":"text-gray-900"}`}>{plan.name}</h3>
-                <div className={`text-3xl font-extrabold mb-1 ${(plan as any).popular ? "text-white":"text-gray-900"}`}>{plan.price}</div>
-                <div className={`text-sm mb-5 ${(plan as any).popular ? "text-white/50":"text-gray-400"}`}>{plan.period}</div>
-                <ul className="flex flex-col gap-2 mb-6">
-                  {plan.features.map(f => <li key={f} className={`text-sm flex items-center gap-2 ${(plan as any).popular ? "text-white/70":"text-gray-600"}`}><span className="text-[#f7680b]"></span>{f}</li>)}
-                </ul>
-                <Link href="/contact" className={`block text-center py-3 rounded-xl font-bold text-sm transition-colors ${(plan as any).popular ? "bg-[#f7680b] text-white hover:bg-[#e55a00]":"border border-gray-200 text-gray-700 hover:border-[#f7680b] hover:text-[#f7680b]"}`}>Get Started</Link>
-              </div>
-            ))}
-          </div>
-          <p className="text-center text-gray-400 text-xs mt-6">All prices exclude VAT. <Link href="/contact" className="text-[#f7680b] underline">Contact us</Link> for volume discounts.</p>
         </div>
       </section>
 
