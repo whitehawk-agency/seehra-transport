@@ -50,7 +50,61 @@ export default function JobDetailPage({ params }: { params: Promise<{ slug: stri
   const indeedSearchUrl = "https://uk.indeed.com/cmp/Seehra-Transport-Limited";
   const linkedinSearchUrl = "https://www.linkedin.com/company/seehratransport/";
 
+  // Structured data so Indeed and Google for Jobs can index this vacancy
+  const employmentTypeMap: Record<string, string> = {
+    "Full-time": "FULL_TIME",
+    "Part-time": "PART_TIME",
+    "Self-employed": "CONTRACTOR",
+    "Contract": "CONTRACTOR",
+  };
+  const descParts = [
+    job.description,
+    job.responsibilities?.length ? "Responsibilities: " + job.responsibilities.join("; ") : "",
+    job.requirements?.length ? "Requirements: " + job.requirements.join("; ") : "",
+    job.benefits?.length ? "Benefits: " + job.benefits.join("; ") : "",
+  ].filter(Boolean);
+  const posted = job.createdAt ? new Date(job.createdAt) : new Date();
+  const validThrough = new Date(posted.getTime() + 60 * 24 * 60 * 60 * 1000);
+  const jobPostingLd = {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    title: job.title,
+    description: `<p>${descParts.join("</p><p>")}</p>`,
+    identifier: { "@type": "PropertyValue", name: "Seehra Transport Limited", value: job.id },
+    datePosted: posted.toISOString().slice(0, 10),
+    validThrough: validThrough.toISOString().slice(0, 10),
+    employmentType: employmentTypeMap[job.type] || "OTHER",
+    hiringOrganization: {
+      "@type": "Organization",
+      name: "Seehra Transport Limited",
+      sameAs: "https://www.seehratransport.com",
+      logo: "https://www.seehratransport.com/icon-512.png",
+    },
+    jobLocation: {
+      "@type": "Place",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: job.location || "Oldbury",
+        addressRegion: "West Midlands",
+        addressCountry: "GB",
+      },
+    },
+    directApply: true,
+    ...(job.salary ? {
+      baseSalary: {
+        "@type": "MonetaryAmount",
+        currency: "GBP",
+        value: { "@type": "QuantitativeValue", value: job.salary, unitText: "YEAR" },
+      },
+    } : {}),
+  };
+
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingLd) }}
+      />
     <div className="min-h-screen" style={{ background: "#f3f2ef" }}>
       {/* Breadcrumb - sits under main site header */}
       <div className="bg-white border-b border-gray-100">
@@ -323,5 +377,6 @@ export default function JobDetailPage({ params }: { params: Promise<{ slug: stri
         </div>
       )}
     </div>
+    </>
   );
 }
