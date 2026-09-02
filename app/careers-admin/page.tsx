@@ -22,6 +22,7 @@ export default function AdminDashboard() {
   const [authError, setAuthError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [tab, setTab] = useState<"applications"|"jobs"|"post">("applications");
+  const [dbConnected, setDbConnected] = useState<boolean | null>(null);
   const [jobs, setJobs] = useState<Job[]>([]);
   const [applications, setApplications] = useState<Application[]>([]);
   const [selected, setSelected] = useState<Application | null>(null);
@@ -51,6 +52,7 @@ export default function AdminDashboard() {
         setJobs(await jRes.json());
         setApplications(await aRes.json());
         setAuthed(true);
+        fetch("/api/storage-status").then(r => r.json()).then(d => setDbConnected(!!d.persistent)).catch(() => setDbConnected(false));
       } else { setAuthError(true); }
     } catch { setAuthError(true); }
     setLoading(false);
@@ -269,6 +271,24 @@ export default function AdminDashboard() {
           </div>
         </div>
       </header>
+
+      {/* Database status banner */}
+      {dbConnected === false && (
+        <div className="bg-red-50 border-b border-red-200 px-4 sm:px-6 py-2.5">
+          <div className="max-w-7xl mx-auto flex items-center gap-2 text-xs text-red-700">
+            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" className="flex-shrink-0"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <span><strong>Database not connected.</strong> Jobs and applications will not be saved permanently and may disappear. Connect the Upstash database in Vercel to fix this.</span>
+          </div>
+        </div>
+      )}
+      {dbConnected === true && (
+        <div className="bg-green-50 border-b border-green-200 px-4 sm:px-6 py-2">
+          <div className="max-w-7xl mx-auto flex items-center gap-2 text-xs text-green-700">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5" className="flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Database connected.</strong> Jobs and applications are saved permanently.</span>
+          </div>
+        </div>
+      )}
 
       {/* Stats */}
       <div className="bg-white border-b border-gray-100">
