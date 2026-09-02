@@ -34,6 +34,7 @@ export interface Application {
   coverLetter: string;
   source: "website" | "indeed" | "linkedin" | "other";
   status: ApplicationStatus;
+  decision?: "yes" | "no" | "maybe";
   createdAt: string;
   notes: string;
   cvFilename?: string;

@@ -66,6 +66,58 @@ export default function AdminDashboard() {
     setSelected(p => p?.id === id ? { ...p, status } : p);
   }
 
+  async function updateAppDecision(id: string, decision: "yes"|"no"|"maybe") {
+    // Toggle off if the same decision is clicked again
+    const current = applications.find(a => a.id === id)?.decision;
+    const next = current === decision ? undefined : decision;
+    await fetch("/api/applications", {
+      method: "PATCH",
+      headers: { "Content-Type":"application/json", "x-admin-key": adminKey },
+      body: JSON.stringify({ id, decision: next ?? null }),
+    });
+    setApplications(p => p.map(a => a.id === id ? { ...a, decision: next } : a));
+    setSelected(p => p?.id === id ? { ...p, decision: next } : p);
+  }
+
+  const [notesDraft, setNotesDraft] = useState("");
+  const [notesSaved, setNotesSaved] = useState(false);
+  async function saveNotes(id: string) {
+    await fetch("/api/applications", {
+      method: "PATCH",
+      headers: { "Content-Type":"application/json", "x-admin-key": adminKey },
+      body: JSON.stringify({ id, notes: notesDraft }),
+    });
+    setApplications(p => p.map(a => a.id === id ? { ...a, notes: notesDraft } : a));
+    setSelected(p => p?.id === id ? { ...p, notes: notesDraft } : p);
+    setNotesSaved(true);
+    setTimeout(() => setNotesSaved(false), 1500);
+  }
+
+  function exportCSV() {
+    const decisionLabel = (d?: string) => d === "yes" ? "Yes" : d === "no" ? "No" : d === "maybe" ? "Maybe" : "";
+    const headers = ["Name","Email","Phone","Job","Status","Decision","Licence","Experience","Availability","Address","Applied","Has CV","Notes"];
+    const rows = applications.map(a => [
+      `${a.firstName} ${a.lastName}`, a.email, a.phone, a.jobTitle, a.status,
+      decisionLabel(a.decision), a.licenceType || "", a.experience || "", a.availability || "",
+      a.address || "", new Date(a.createdAt).toLocaleDateString("en-GB"),
+      (a as any).cvFilename ? "Yes" : "No", (a.notes || "").replace(/\n/g, " "),
+    ]);
+    const esc = (v: string) => `"${String(v).replace(/"/g, '""')}"`;
+    const csv = [headers, ...rows].map(r => r.map(esc).join(",")).join("\n");
+    const blob = new Blob(["\ufeff" + csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `seehra-applicants-${new Date().toISOString().slice(0,10)}.csv`;
+    link.click();
+    URL.revokeObjectURL(url);
+  }
+
+  useEffect(() => {
+    setNotesDraft(selected?.notes || "");
+    setNotesSaved(false);
+  }, [selected?.id]);
+
   function resetJobForm() {
     setJobForm({ title:"", department:"Operations", location:"", type:"Self-employed", salary:"", description:"", requirements:"", responsibilities:"", benefits:"" });
     setEditingId(null);
@@ -264,6 +316,12 @@ export default function AdminDashboard() {
                   <option value="All">All Statuses</option>
                   {ALL_STATUSES.map(s => <option key={s} className="capitalize">{s}</option>)}
                 </select>
+                <button onClick={exportCSV} disabled={applications.length === 0}
+                  className="ml-auto flex items-center gap-1.5 border border-gray-200 text-gray-700 rounded-xl px-3 py-2 text-xs font-bold hover:border-[#f7680b] hover:text-[#f7680b] transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                  title="Download all applicants as a spreadsheet">
+                  <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  Export CSV
+                </button>
               </div>
 
               {filtered.length === 0 ? (
@@ -284,8 +342,12 @@ export default function AdminDashboard() {
                         <div className="flex items-start justify-between gap-3">
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2 flex-wrap mb-1">
+                              {app.decision === "yes" && <span className="w-5 h-5 rounded-full bg-green-100 text-green-700 flex items-center justify-center flex-shrink-0" title="Yes"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>}
+                              {app.decision === "no" && <span className="w-5 h-5 rounded-full bg-red-100 text-red-700 flex items-center justify-center flex-shrink-0" title="No"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>}
+                              {app.decision === "maybe" && <span className="w-5 h-5 rounded-full bg-yellow-100 text-yellow-700 flex items-center justify-center flex-shrink-0 text-[11px] font-black" title="Maybe">?</span>}
                               <span className="font-bold text-sm text-gray-900">{app.firstName} {app.lastName}</span>
                               <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full ${s.bg} ${s.text}`}>{s.label}</span>
+                              {app.notes && <span className="text-gray-300" title="Has notes"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></span>}
                             </div>
                             <p className="text-xs text-gray-500 mb-0.5 truncate">{app.jobTitle}</p>
                             <p className="text-xs text-gray-400">{app.email}</p>
@@ -366,6 +428,28 @@ export default function AdminDashboard() {
                     </div>
                   )}
 
+                  {/* Quick decision: tick / cross / question mark */}
+                  <div className="mb-5">
+                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Decision</p>
+                    <div className="grid grid-cols-3 gap-2">
+                      <button onClick={() => updateAppDecision(selected.id, "yes")}
+                        className={`flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-sm font-bold transition-all border ${selected.decision === "yes" ? "bg-green-100 border-green-300 text-green-700" : "border-gray-200 text-gray-400 hover:border-green-200 hover:text-green-600"}`}>
+                        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Yes
+                      </button>
+                      <button onClick={() => updateAppDecision(selected.id, "maybe")}
+                        className={`flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-sm font-bold transition-all border ${selected.decision === "maybe" ? "bg-yellow-100 border-yellow-300 text-yellow-700" : "border-gray-200 text-gray-400 hover:border-yellow-200 hover:text-yellow-600"}`}>
+                        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                        Maybe
+                      </button>
+                      <button onClick={() => updateAppDecision(selected.id, "no")}
+                        className={`flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-sm font-bold transition-all border ${selected.decision === "no" ? "bg-red-100 border-red-300 text-red-700" : "border-gray-200 text-gray-400 hover:border-red-200 hover:text-red-600"}`}>
+                        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                        No
+                      </button>
+                    </div>
+                  </div>
+
                   <div>
                     <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Update Status</p>
                     <div className="grid grid-cols-2 gap-1.5">
@@ -381,6 +465,26 @@ export default function AdminDashboard() {
                           </button>
                         );
                       })}
+                    </div>
+                  </div>
+
+                  {/* Notes / message */}
+                  <div className="mt-5">
+                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Notes</p>
+                    <textarea
+                      value={notesDraft}
+                      onChange={e => setNotesDraft(e.target.value)}
+                      placeholder="Add a private note about this candidate..."
+                      rows={4}
+                      className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-xs text-gray-700 focus:outline-none focus:border-[#f7680b] transition-colors resize-y"
+                    />
+                    <div className="flex items-center justify-between mt-2">
+                      <span className={`text-xs font-semibold transition-opacity ${notesSaved ? "text-green-600 opacity-100" : "opacity-0"}`}>Saved ✓</span>
+                      <button onClick={() => saveNotes(selected.id)}
+                        disabled={notesDraft === (selected.notes || "")}
+                        className="text-xs font-bold text-white bg-[#f7680b] px-4 py-2 rounded-lg hover:bg-[#e55a00] transition-colors disabled:opacity-40 disabled:cursor-not-allowed">
+                        Save Note
+                      </button>
                     </div>
                   </div>
                 </div>
